@@ -1,0 +1,243 @@
+login.css
+/* General styles for the login page */
+/* .login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #F7F7F7; 
+} */
+
+.login-box {
+  width: 100%;
+  max-width: 400px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the logo inside the login box */
+.login-logo {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.logo-image {
+  width: 200px !important;
+  max-width: 200px;
+  /* Max width for the logo */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  /* Center the logo */
+}
+
+.logo-container h3 {
+  font-family: Inter;
+  font-weight: 500;
+  font-size: 46px;
+  text-align: center;
+  text-transform: uppercase;
+
+}
+
+.logo-container p {
+  font-family: Inter;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+/* Styling for the title */
+.login-title {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+/* Styling for the error message */
+.error-message {
+  color: #E01A2B;
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+/* Styling for the form inputs */
+.form-control {
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Button styling */
+.submit-btn {
+  padding: 16px 30px;
+  background-color: #3C5898 !important;
+  /* Blue color */
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 24px;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 16px;
+  box-shadow: 0px 16px 32px 0px #009EE21A;
+}
+
+.submit-btn:hover {
+  background-color: #3C5898 !important;
+  /* Darker blue on hover */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 576px) {
+  .login-box {
+    width: 90%;
+    /* Take more space on smaller screens */
+  }
+
+  .logo {
+    max-width: 120px;
+    /* Adjust logo size for small screens */
+  }
+}
+
+.form-control {
+  padding: 13px 16px !important;
+  font-size: 12px !important;
+  height: 40px !important;
+  border: 1px solid #D9D9D9;
+  /* border-radius: 24px; */
+}
+
+
+.form-control-rounded {
+  border-radius: 24px; 
+}
+
+.otp .form-control {
+  background-color: #3C5898;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+}
+
+/* .login-card{
+  box-shadow: 0px 2.85px 49.8px 0px #1877F240;
+  border-radius: 24px;
+  padding: 60px !important;
+  
+} */
+label {
+  /* font-family: Inter; */
+  font-weight: 500;
+  font-size: 14px;
+  text-align: left;
+  display: flex;
+}
+
+.link {
+  font-family: Inter;
+  font-weight: 600;
+  font-size: 14px;
+  color: #3C5898;
+  text-decoration: none;
+}
+
+.policytext {
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.policytext span a {
+  font-family: Inter;
+  font-weight: 600;
+  font-size: 14px;
+  color: #3C5898;
+  text-decoration: none;
+}
+
+.otptext {
+  font-family: Inter;
+  font-weight: 500;
+  font-size: 16px;
+  text-align: center;
+}
+
+.circle-icon {
+  width: 50px;
+  height: 50px;
+  background-color: #f1f1f1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.circle-icon:hover {
+  transform: scale(1.1);
+}
+
+.circle-icon img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 30px 0;
+  color: #555;
+  font-size: 14px;
+}
+
+.separator::before,
+.separator::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #ccc;
+  margin: 0 12px;
+}
+
+.social-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  padding: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.05);
+}
+
+.arrow-icon {
+  font-size: 18px;
+  transition: transform 0.2s ease;
+  margin-left: 74%;
+}
+
+.submit-btn:hover .arrow-icon {
+  transform: translateX(4px);
+}
+.custom-flex-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* spacing between text and icon */
+  width: 100%;
+}

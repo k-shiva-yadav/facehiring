@@ -1,0 +1,78 @@
+
+.assessment-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 32px;
+  box-shadow: 0 2px 8px #eee;
+  text-align: left;
+}
+.assessment-title {
+  text-align: left;
+}
+.time-remaining {
+  color: #888;
+  margin-bottom: 16px;
+  text-align: left;
+}
+.problems-title {
+  text-align: left;
+  display: block;
+}
+.problem-box {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-top: 16px;
+  padding: 24px;
+  text-align: left;
+}
+.problem-box h3 {
+  text-align: left;
+}
+.problem-box p {
+  text-align: left;
+}
+.problem-box b {
+  text-align: left;
+  display: block;
+}
+.submit-section {
+  text-align: center;
+  margin-top: 32px;
+}
+.submit-btn {
+  width: 300px;
+  background: #3b5998;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 0;
+  font-size: 18px;
+  cursor: pointer;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .assessment-container {
+    padding: 0rem;
+  }
+  .assessment-card {
+    padding: 1.5rem;
+  }
+  .submit-btn {
+    width: 100%;
+  }
+} 
+
+@media (max-width: 420px) {
+
+  .assessment-card {
+    padding: 10px;
+  }
+
+} 
+
+.competition-technical-assessment-container{
+  background: #F3F3F3;
+  padding: 20px 0;
+}
+

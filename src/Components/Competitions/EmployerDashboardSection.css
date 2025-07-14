@@ -1,0 +1,107 @@
+.employer-dashboard-section {
+  margin-top: 2rem;
+}
+
+.dashboard-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.dashboard-subtitle {
+  font-size: 1.1rem;
+  color: #888;
+  margin-bottom: 1.5rem;
+}
+
+.insights-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.insights-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.insights-total {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  margin-bottom: 1.2rem;
+}
+.insights-total-num {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #222;
+}
+.insights-total-label {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.insights-breakdown {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+.insights-breakdown-row {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 1.1rem;
+  margin-bottom: 0.7rem;
+}
+.insights-breakdown-num {
+  font-size: 1.2rem;
+  font-weight: 600;
+  min-width: 36px;
+  display: inline-block;
+}
+.insights-breakdown-num.active {
+  color: #1a7f37;
+}
+.insights-breakdown-num.inactive {
+  color: #e6a700;
+}
+.insights-breakdown-num.closed {
+  color: #e50914;
+}
+.insights-breakdown-label {
+  color: #555;
+}
+
+@media (max-width: 991px) {
+  .dashboard-title {
+    font-size: 1.2rem;
+  }
+  .insights-card {
+    min-height: 220px;
+    padding: 1.2rem 0.7rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .employer-dashboard-section {
+    margin-top: 1rem;
+    padding: 0 0.5rem;
+  }
+  .dashboard-title {
+    font-size: 1rem;
+  }
+  .insights-card {
+    min-height: 120px;
+    padding: 0.7rem 0.2rem;
+  }
+  .insights-total-num {
+    font-size: 1.5rem;
+  }
+  .insights-title {
+    font-size: 1rem;
+  }
+} 

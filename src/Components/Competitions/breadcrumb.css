@@ -1,0 +1,18 @@
+.breadcrumb-container {
+  width: 100%;
+  padding: 1rem 0rem;
+  box-sizing: border-box;
+  text-align: left;
+  color: #888;
+  font-size: 13px;
+}
+
+.breadcrumb-container b {
+  color: #222;
+}
+
+@media (max-width: 768px) {
+  .breadcrumb-container {
+    padding: 1rem;
+  }
+} 

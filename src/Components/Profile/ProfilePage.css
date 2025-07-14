@@ -1,0 +1,424 @@
+/* .profile-container {
+  padding: 20px;
+  background-color: #F3F3F3;
+  min-height: 100vh;
+}
+
+.profiles-card {
+  position: relative;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-banner-container {
+  position: relative;
+}
+
+.profile-banner-img {
+  height: 150px;
+  object-fit: cover;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+.upload-banner-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.profile-avatar-img {
+  width: 100px;
+  height: 100px;
+  margin-top: -9px;
+  border: 3px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.profile-name {
+  margin-top: 10px;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.profile-title {
+  color: #6c757d;
+  font-size: 1rem;
+}
+
+.profile-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+}
+
+.edit-icon {
+  cursor: pointer;
+  color: #007bff;
+}
+
+.edit-icon:hover {
+  color: #0056b3;
+}
+
+.profile-about-text {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.video-icon {
+  flex-shrink: 0;
+}
+
+.btn-add-small {
+  background: none;
+  border: none;
+  color: #007bff;
+  font-size: 0.9rem;
+}
+
+.btn-add-small:hover {
+  text-decoration: underline;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+}
+
+.detail-icon {
+  margin-right: 10px;
+  color: #007bff;
+  font-size: 1.2rem;
+}
+
+.detail-item small {
+  font-size: 0.75rem;
+  color: #6c757d;
+}
+
+.detail-item p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.experience-item {
+  display: flex;
+  align-items: center;
+}
+
+.company-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tag {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #e0e7ff;
+  color: #1e3a8a;
+  border-radius: 12px;
+  font-size: 0.85rem;
+}
+
+.skill-tag.secondary {
+  background-color: #f1f5f9;
+  color: #475569;
+}
+
+.btn-download {
+  display: flex;
+  align-items: center;
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+
+.btn-download:hover {
+  background: #0056b3;
+}
+
+.download-icon {
+  margin-right: 5px;
+}
+
+.text-center.my-5 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .profile-banner-img {
+    height: 120px;
+  }
+
+  .profile-avatar-img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .profile-name {
+    font-size: 1.25rem;
+  }
+
+  .profile-title {
+    font-size: 0.9rem;
+  }
+
+  .detail-item p {
+    font-size: 0.85rem;
+  }
+} */
+
+.profile-container {
+  padding: 20px;
+  background-color: #F3F3F3;
+  min-height: 100vh;
+   position: relative;
+}
+
+.profiles-card {
+  position: relative;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-banner-container {
+  position: relative;
+}
+
+.profile-banner-img {
+  height: 150px;
+  object-fit: cover;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+.upload-banner-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.profile-avatar-img {
+  width: 100px;
+  height: 100px;
+  margin-top: -9px;
+  border: 3px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.profile-name {
+  margin-top: 10px;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.profile-title {
+  color: #6c757d;
+  font-size: 1rem;
+}
+
+.profile-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+}
+
+.edit-icon {
+  cursor: pointer;
+  color: #007bff;
+}
+
+.edit-icon:hover {
+  color: #0056b3;
+}
+
+.profile-about-text {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.video-icon {
+  flex-shrink: 0;
+}
+
+.btn-add-small {
+  background: none;
+  border: none;
+  color: #007bff;
+  font-size: 0.9rem;
+}
+
+.btn-add-small:hover {
+  text-decoration: underline;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+}
+
+.detail-icon {
+  margin-right: 10px;
+  color: #007bff;
+  font-size: 1.2rem;
+}
+
+.detail-item small {
+  font-size: 0.75rem;
+  color: #6c757d;
+}
+
+.detail-item p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+.from-left{
+  display: flex;
+  flex-direction: column;
+  place-items: baseline;
+}
+.experience-item {
+  display: flex;
+  align-items: center;
+}
+
+.company-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tag {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #e0e7ff;
+  color: #1e3a8a;
+  border-radius: 12px;
+  font-size: 0.85rem;
+}
+
+.skill-tag.secondary {
+  background-color: #f1f5f9;
+  color: #475569;
+}
+
+.btn-download {
+  display: flex;
+  align-items: center;
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+
+.btn-download:hover {
+  background: #0056b3;
+}
+
+.download-icon {
+  margin-right: 5px;
+}
+
+.text-center.my-5 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .profile-banner-img {
+    height: 120px;
+  }
+
+  .profile-avatar-img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .profile-name {
+    font-size: 1.25rem;
+  }
+
+  .profile-title {
+    font-size: 0.9rem;
+  }
+
+  .detail-item p {
+    font-size: 0.85rem;
+  }
+}
+
+.floating-banner-strip {
+  position: absolute; /* or 'fixed' if you want it stuck on screen */
+  top: 10px;           /* adjust to position */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgb(37, 150, 190);
+  color: white;
+  padding: 14px 24px;
+  border-radius: 8px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.banner-close-btn {
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Optional fade animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+.font-weight{
+  font-weight: 600;
+}

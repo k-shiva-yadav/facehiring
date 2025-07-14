@@ -1,0 +1,241 @@
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  box-sizing: border-box;
+  z-index: 1000;
+}
+
+.popup-content {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  max-width: 448px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.popup-title {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  color: #333;
+  text-align: center;
+}
+
+.company-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.company-logo, .user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.description {
+  color: #666;
+  margin-bottom: 12px;
+  font-size: 13px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.code-label {
+  color: #666;
+  margin-bottom: 6px;
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.code-inputs {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.code-input {
+  width: 36px;
+  height: 36px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.code-input:focus {
+  outline: none;
+  border-color: #0073b1;
+  box-shadow: 0 0 0 2px rgba(0, 115, 177, 0.1);
+}
+
+.verify-btn {
+  padding: 8px 16px;
+  background-color: #0073b1;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+  font-size: 13px;
+  min-width: 80px;
+}
+
+.verify-btn:hover {
+  background-color: #005582;
+}
+
+/* Tablet Responsive */
+@media (min-width: 768px) {
+  .popup-overlay {
+    padding: 24px;
+  }
+  
+  .popup-content {
+    padding: 24px;
+  }
+  
+  .popup-title {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+  
+  .company-info {
+    margin-bottom: 16px;
+  }
+  
+  .company-logo, .user-avatar {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .description {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+  
+  .code-label {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  
+  .code-inputs {
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  
+  .code-input {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+  
+  .verify-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    min-width: 100px;
+  }
+}
+
+/* Desktop Responsive */
+@media (min-width: 1024px) {
+  .popup-content {
+    max-width: 500px;
+  }
+  
+  .popup-title {
+    font-size: 20px;
+  }
+  
+  .description {
+    font-size: 15px;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1200px) {
+  .popup-content {
+    max-width: 550px;
+  }
+}
+
+/* Mobile Landscape */
+@media (max-width: 767px) and (orientation: landscape) {
+  .popup-overlay {
+    padding: 12px;
+  }
+  
+  .popup-content {
+    max-height: 80vh;
+  }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 480px) {
+  .popup-overlay {
+    padding: 12px;
+  }
+  
+  .popup-content {
+    padding: 16px;
+    border-radius: 6px;
+  }
+  
+  .popup-title {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  
+  .company-info {
+    margin-bottom: 10px;
+  }
+  
+  .company-logo, .user-avatar {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .description {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+  
+  .code-label {
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+  
+  .code-inputs {
+    gap: 4px;
+    margin-bottom: 10px;
+  }
+  
+  .code-input {
+    width: 32px;
+    height: 32px;
+    font-size: 13px;
+  }
+  
+  .verify-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+    min-width: 70px;
+  }
+}

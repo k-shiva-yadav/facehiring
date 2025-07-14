@@ -1,0 +1,266 @@
+/* PostJob.css */
+
+/* Page Container */
+.post-job-page {
+  min-height: 100vh;
+  width: 100vw;
+  background-color: #f3f6f8;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+/* Main Container */
+.post-job-container {
+  max-width: 896px;
+  width: 100%;
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 32px;
+  margin: 0 auto;
+}
+
+/* Greeting Section */
+.greeting-text {
+  font-size: 36px;
+  font-weight: 700;
+  color: #3C5898;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.subtitle-text {
+  font-size: 28px;
+  font-weight: 600;
+  color:#000000;
+  margin-bottom: 24px;
+  line-height: 1.3;
+}
+
+/* Benefits and Form Section */
+.benefits-form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 768px) {
+  .benefits-form-section {
+    flex-direction: row;
+  }
+}
+
+/* Benefits List */
+.benefits-list {
+  flex: 1;
+}
+
+.benefits-heading {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 16px;
+}
+
+.benefits-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: flex-start;
+  font-size: 16px;
+  color:#000000;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.bullet-point {
+  color: #3C5898;
+  margin-right: 8px;
+  font-size: 20px;
+}
+
+/* Form Container */
+.form-container {
+  flex: 1;
+  background-color: #F5F7FA;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.form-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #5E6D82;
+  margin-bottom: 8px;
+}
+
+.required-asterisk {
+  color: #EF4444;
+}
+
+.job-title-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #D1D5DB;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  color: #1F2A44;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.job-title-input:focus {
+  border-color: #3C5898;
+  box-shadow: 0 0 0 3px rgba(60, 88, 152, 0.2);
+}
+
+.job-title-input::placeholder {
+  color: #A1A1AA;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.primary-button {
+  width: 100%;
+  background-color: #3C5898;
+  color: #FFFFFF;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.primary-button:hover {
+  background-color: #2E4477;
+}
+
+.pricing-info {
+  text-align: center;
+  font-size: 14px;
+  color: #5E6D82;
+  margin: 4px 0;
+}
+
+.price {
+  font-weight: 600;
+  color: #1F2A44;
+}
+
+.per-day {
+  color: #9CA3AF;
+}
+
+.secondary-button {
+  width: 100%;
+  background-color: #FFFFFF;
+  color: #000000;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  border: 1px solid #000000;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.secondary-button:hover {
+  background-color: #E6F0FA;
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  background-color: #E5E7EB;
+  margin: 32px 0;
+}
+
+/* How It Works Section */
+.how-it-works-section {
+  margin-top: 32px;
+}
+
+.how-it-works-heading {
+  font-size: 24px;
+  font-weight: 600;
+  color: #3C5898;
+  margin-bottom: 16px;
+}
+
+.how-it-works-subtitle {
+  font-size: 16px;
+  color: #5E6D82;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+.steps-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center all child items horizontally */
+  gap: 32px;
+  text-align: center;
+}
+/* .steps-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+} */
+
+
+@media (min-width: 768px) {
+  .steps-grid {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.step-item {
+  text-align: center;
+  flex: 1;
+  max-width: 250px;
+  margin: 0 auto;
+}
+
+.step-icon {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  margin: 0 auto 16px;
+  display: block;
+}
+
+.step-heading {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.step-number-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.step-description {
+  font-size: 16px;
+  color: #000000;
+  line-height: 1.5;
+}

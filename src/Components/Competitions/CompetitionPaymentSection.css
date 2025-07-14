@@ -1,0 +1,155 @@
+.my-payment-container{
+  background: #F3F3F3;
+  padding: 20px 0;
+}
+
+.competition-payment-section {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0px 0px 10px lightgray;
+  padding: 20px 0px;
+  max-width: 800px;
+  margin: 0px auto;
+}
+.team-header {
+  align-items: center;
+  gap: 16px;
+}
+.team-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  object-fit: cover;
+  background: #f5f5f5;
+}
+.team-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #222;
+}
+.team-tab {
+  background: #3C5898;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border-radius: 0 0 0 0;
+  padding: 10px 32px;
+  margin: 20px 0px;
+  width: 100%;
+  /* border-radius: 6px; */
+}
+.payment-content {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.amount-summary-box {
+  background: #e9f0ff;
+  color: #222;
+  font-size: 1.15rem;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 18px 0;
+  margin: 0 auto 24px auto;
+  width: 100%;
+  max-width: 400px;
+}
+.payment-btn {
+  background: #3C5898;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 16px 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto 24px auto;
+  display: block;
+  transition: background 0.15s;
+}
+.payment-btn:hover {
+  background: #2a4170;
+}
+.payment-icons-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  margin-top: 32px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.payment-icons-row img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 4px;
+  border: 1px solid lightgray;
+  /* box-shadow: 0 1px 4px rgba(44,62,80,0.06); */
+  padding: 2px 6px;
+}
+.razorpay-secure {
+  margin-top: 18px;
+  font-size: 1.1rem;
+  color: #222;
+  gap: 8px;
+}
+.razorpay-logo {
+  height: 32px;
+  width: auto;
+  margin-right: 8px;
+}
+.payment-icon-text {
+  height: 32px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 1px 4px rgba(44,62,80,0.06);
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #555;
+  border: 1px solid #eee;
+}
+.payment-content h3 {
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 1rem;
+}
+.payment-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+.secure-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
+.secure-badge img {
+    margin-right: 8px;
+}
+@media (max-width: 768px) {
+
+  .team-header {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .amount-summary-box, .payment-btn {
+    width: 100%;
+    max-width: none;
+  }
+  .payment-icons-row {
+    gap: 10px;
+  }
+} 
+
+@media (max-width: 768px) {
+.competition-payment-section {
+  padding: 10px;
+}
+}

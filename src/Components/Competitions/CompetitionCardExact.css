@@ -1,0 +1,1060 @@
+.ccard-exact {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px 0 rgba(60, 88, 152, 0.10);
+  overflow: hidden;
+  max-width: 420px;
+  margin: 0 auto;
+  font-family: 'Inter', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.ccard-banner-row {
+  position: relative;
+  width: 100%;
+  height: 120px;
+  background: #f5f7fa;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.ccard-banner-img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.ccard-logo-wrap {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ccard-logo-img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  background: #fff;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(60, 88, 152, 0.10);
+}
+
+.ccard-free-badge {
+  position: absolute;
+  top: -10px;
+  right: -18px;
+  background: #e60023;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 50px;
+  padding: 4px 16px;
+  box-shadow: 0 2px 8px rgba(230, 0, 35, 0.15);
+  z-index: 2;
+}
+
+.ccard-content {
+  padding: 0 24px 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ccard-title-row {
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+
+.ccard-title-main {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-align: left;
+  color: #222;
+}
+
+.ccard-subtitle-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 2px;
+}
+
+.ccard-subtitle {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #222;
+}
+
+.ccard-online-badge {
+  background: #e6f4ea;
+  color: #1aaf5d;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 6px;
+  padding: 2px 10px;
+  margin-left: 6px;
+}
+
+.ccard-desc {
+  font-size: 0.98rem;
+  color: #444;
+  margin-bottom: 6px;
+}
+
+.ccard-details-row {
+  display: flex;
+  gap: 32px;
+  margin: 10px 0 0 0;
+}
+
+.ccard-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.ccard-icon {
+  color: #3c5898;
+  font-size: 1.1rem;
+  margin-bottom: 2px;
+}
+
+.ccard-detail-label {
+  font-size: 0.85rem;
+  color: #888;
+  font-weight: 500;
+}
+
+.ccard-detail-value {
+  font-size: 1rem;
+  color: #222;
+  font-weight: 600;
+}
+
+.ccard-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 18px;
+}
+
+.ccard-footer-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.ccard-footer-item {
+  display: flex;
+  align-items: center;
+  font-size: 0.97rem;
+  color: #444;
+  gap: 5px;
+  font-weight: 500;
+}
+
+.ccard-footer-icon {
+  font-size: 1.05rem;
+  color: #3c5898;
+}
+
+.ccard-participate-btn {
+  background: #3c5898;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 24px;
+  font-size: 1.08rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(60, 88, 152, 0.10);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+
+.ccard-participate-btn:hover {
+  background: #2a3e6e;
+}
+
+.ccard-participate-icon {
+  font-size: 1.1rem;
+  margin-right: 4px;
+}
+
+@media (max-width: 600px) {
+  .ccard-exact {
+    max-width: 100%;
+    border-radius: 10px;
+  }
+  .ccard-content {
+    padding: 0 12px 16px 12px;
+  }
+  .ccard-banner-img {
+    height: 90px;
+  }
+  .ccard-logo-img {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+.ccard-exact-v2 {
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 4px 16px 0 rgba(60, 88, 152, 0.10);
+  overflow: hidden;
+  max-width: 480px;
+  min-width: 340px;
+  margin: 0 auto;
+  font-family: 'Inter', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  border: none;
+}
+
+.ccard-banner-row-v2 {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  background: #f5f7fa;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  overflow: hidden;
+}
+
+.ccard-banner-img-v2 {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+}
+
+.ccard-banner-title-v2 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: #222;
+  letter-spacing: 2px;
+  text-align: center;
+  z-index: 2;
+  pointer-events: none;
+  text-shadow: 0 2px 8px rgba(255,255,255,0.7);
+}
+
+.ccard-logo-burst-wrap-v2 {
+  position: absolute;
+  right: 32px;
+  bottom: -40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 3;
+}
+
+.ccard-logo-circle-v2 {
+  width: 96px;
+  height: 96px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 12px rgba(60, 88, 152, 0.10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.ccard-logo-img-v2 {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: none;
+}
+
+.ccard-burst-badge-v2 {
+  position: absolute;
+  top: -18px;
+  right: -18px;
+  background: #e60023;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 50%;
+  padding: 8px 18px 8px 18px;
+  box-shadow: 0 2px 8px rgba(230, 0, 35, 0.15);
+  z-index: 4;
+  border: 4px solid #fff;
+  min-width: 56px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Burst effect */
+  clip-path: polygon(
+    50% 0%, 61% 35%, 98% 35%, 68% 57%,
+    79% 91%, 50% 70%, 21% 91%, 32% 57%,
+    2% 35%, 39% 35%
+  );
+}
+
+.ccard-content-v2 {
+  padding: 32px 32px 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ccard-title-row-v2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.ccard-subtitle-v2 {
+  font-size: 1.18rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.ccard-online-badge-v2 {
+  background: #e6f4ea;
+  color: #1aaf5d;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 4px 16px;
+  margin-left: 6px;
+}
+
+.ccard-desc-v2 {
+  font-size: 1.05rem;
+  color: #444;
+  margin-bottom: 8px;
+}
+
+.ccard-details-row-v2 {
+  display: flex;
+  gap: 48px;
+  margin: 18px 0 0 0;
+}
+
+.ccard-detail-v2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.ccard-icon-v2 {
+  color: #3c5898;
+  font-size: 1.45rem;
+  margin-bottom: 2px;
+  font-weight: bold;
+}
+
+.ccard-detail-label-v2 {
+  font-size: 1rem;
+  color: #888;
+  font-weight: 500;
+}
+
+.ccard-detail-value-v2 {
+  font-size: 1.13rem;
+  color: #222;
+  font-weight: 700;
+}
+
+.ccard-footer-v2 {
+  background: #fafbfc;
+  border-top: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 32px;
+  margin-top: 28px;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+}
+
+.ccard-footer-left-v2 {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.ccard-footer-item-v2 {
+  display: flex;
+  align-items: center;
+  font-size: 1.08rem;
+  color: #6c757d;
+  gap: 6px;
+  font-weight: 500;
+}
+
+.ccard-footer-icon-v2 {
+  font-size: 1.15rem;
+  color: #3c5898;
+}
+
+.ccard-participate-btn-v2 {
+  background: #3c5898;
+  color: #fff;
+  border: none;
+  border-radius: 32px;
+  padding: 12px 32px;
+  font-size: 1.18rem;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(60, 88, 152, 0.10);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.2s;
+}
+
+.ccard-participate-btn-v2:hover {
+  background: #2a3e6e;
+}
+
+.ccard-participate-icon-v2 {
+  font-size: 1.25rem;
+  margin-right: 6px;
+}
+
+@media (max-width: 700px) {
+  .ccard-exact-v2 {
+    max-width: 100%;
+    border-radius: 14px;
+  }
+  .ccard-content-v2 {
+    padding: 18px 12px 0 12px;
+  }
+  .ccard-banner-img-v2 {
+    height: 120px;
+  }
+  .ccard-logo-circle-v2 {
+    width: 64px;
+    height: 64px;
+  }
+  .ccard-logo-img-v2 {
+    width: 48px;
+    height: 48px;
+  }
+  .ccard-footer-v2 {
+    padding: 12px 12px;
+  }
+}
+
+.ccard-exact-emoji {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 2px 12px 0 rgba(60, 88, 152, 0.10);
+  overflow: hidden;
+  max-width: 480px;
+  min-width: 340px;
+  margin: 0 auto;
+  font-family: 'Inter', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  border: none;
+}
+
+.ccard-banner-row-emoji {
+  position: relative;
+  width: 100%;
+  height: 140px;
+  background: #f5f7fa;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  overflow: hidden;
+}
+
+.ccard-banner-img-emoji {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.ccard-banner-title-emoji {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #222;
+  letter-spacing: 1.5px;
+  text-align: center;
+  z-index: 2;
+  pointer-events: none;
+  text-shadow: 0 2px 8px rgba(255,255,255,0.7);
+}
+
+.ccard-logo-burst-wrap-emoji {
+  position: absolute;
+  right: 24px;
+  bottom: -32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 3;
+}
+
+.ccard-logo-circle-emoji {
+  width: 72px;
+  height: 72px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(60, 88, 152, 0.10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.ccard-logo-img-emoji {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: none;
+}
+
+.ccard-burst-badge-emoji {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  background: #e60023;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 50%;
+  padding: 6px 14px 6px 14px;
+  box-shadow: 0 2px 8px rgba(230, 0, 35, 0.15);
+  z-index: 4;
+  border: 3px solid #fff;
+  min-width: 40px;
+  min-height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(
+    50% 0%, 61% 35%, 98% 35%, 68% 57%,
+    79% 91%, 50% 70%, 21% 91%, 32% 57%,
+    2% 35%, 39% 35%
+  );
+}
+
+.ccard-content-emoji {
+  padding: 24px 24px 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ccard-title-row-emoji {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 2px;
+}
+
+.ccard-subtitle-emoji {
+  font-size: 1.08rem;
+  font-weight: 500;
+  color: #222;
+}
+
+.ccard-online-badge-emoji {
+  background: #e6f4ea;
+  color: #1aaf5d;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 3px 12px;
+  margin-left: 6px;
+}
+
+.ccard-desc-emoji {
+  font-size: 0.98rem;
+  color: #444;
+  margin-bottom: 6px;
+  font-weight: 400;
+}
+
+.ccard-details-row-emoji {
+  display: flex;
+  gap: 40px;
+  margin: 14px 0 0 0;
+}
+
+.ccard-detail-emoji {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+}
+
+.ccard-emoji {
+  font-size: 1.25rem;
+  margin-bottom: 2px;
+  line-height: 1;
+}
+
+.ccard-detail-label-emoji {
+  font-size: 0.93rem;
+  color: #888;
+  font-weight: 400;
+}
+
+.ccard-detail-value-emoji {
+  font-size: 1.05rem;
+  color: #222;
+  font-weight: 500;
+}
+
+.ccard-footer-emoji {
+  background: #fafbfc;
+  border-top: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  margin-top: 18px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.ccard-footer-left-emoji {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ccard-footer-item-emoji {
+  display: flex;
+  align-items: center;
+  font-size: 0.99rem;
+  color: #888;
+  gap: 5px;
+  font-weight: 400;
+}
+
+.ccard-footer-emoji-icon {
+  font-size: 1.08rem;
+  margin-right: 2px;
+}
+
+.ccard-participate-btn-emoji {
+  background: #3c5898;
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 10px 28px;
+  font-size: 1.08rem;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(60, 88, 152, 0.10);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+
+.ccard-participate-btn-emoji:hover {
+  background: #2a3e6e;
+}
+
+.ccard-participate-icon-emoji {
+  font-size: 1.1rem;
+  margin-right: 4px;
+}
+
+@media (max-width: 700px) {
+  .ccard-exact-emoji {
+    max-width: 100%;
+    border-radius: 12px;
+  }
+  .ccard-content-emoji {
+    padding: 12px 8px 0 8px;
+  }
+  .ccard-banner-img-emoji {
+    height: 90px;
+  }
+  .ccard-logo-circle-emoji {
+    width: 48px;
+    height: 48px;
+  }
+  .ccard-logo-img-emoji {
+    width: 32px;
+    height: 32px;
+  }
+  .ccard-footer-emoji {
+    padding: 8px 8px;
+  }
+}
+
+.ccard-exact-icons {
+  background: #fff;
+  border-radius: 20px;
+  /* box-shadow: 0 2px 12px 0 rgba(60, 88, 152, 0.10); */
+  box-shadow: 0 2px 6px lightgray;
+  overflow: hidden;
+  /* max-width: 480px; */
+  /* min-width: 340px; */
+  margin: 0 auto;
+  font-family: 'Inter', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  border: none;
+  position: relative;
+}
+
+.ccard-banner-row-icons {
+  /* position: relative; */
+  width: 100%;
+  height: 130px;
+  background: #f5f7fa;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  overflow: hidden;
+}
+
+.ccard-banner-img-icons {
+  width: 100%;
+  height: 130px;
+  /* object-fit: cover; */
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+
+.ccard-logo-burst-wrap-icons {
+  position: absolute;
+  right: 20px;
+  top: 40px;
+  /* bottom: -10px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 3;
+}
+
+.ccard-logo-circle-icons {
+  width: 100px;
+  height: 100px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(60, 88, 152, 0.10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.ccard-logo-img-icons {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: none;
+}
+
+.ccard-burst-badge-icons {
+  position: absolute;
+  top: -30px;
+  right: -14px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 4;
+  pointer-events: none;
+}
+.ccard-burst-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: absolute;
+  top: 0; left: 0;
+  z-index: 1;
+}
+.ccard-burst-text {
+  position: relative;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  z-index: 2;
+  pointer-events: none;
+  line-height: 1.1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ccard-content-icons {
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+
+.ccard-title-row-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+  margin-bottom: 0px;
+}
+
+.ccard-subtitle-icons {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.ccard-online-badge-icons {
+  background: #e6f4ea;
+  color: #1aaf5d;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 3px 12px;
+  margin-left: 6px;
+}
+
+.ccard-desc-icons {
+  font-size: 0.88rem;
+  color: #444;
+  margin-bottom: 0px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.ccard-details-row-icons {
+  display: flex;
+  gap: 40px;
+  margin: 10px 0 0 0;
+}
+
+.ccard-detail-icons {
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+
+  gap: 10px;
+}
+
+.ccard-icon-icons {
+  font-size: 1.2rem;
+  margin-bottom: 2px;
+  line-height: 1;
+  vertical-align: middle;
+}
+.ccard-icon-calendar {
+  color: #e05a47;
+}
+.ccard-icon-trophy {
+  color: #e6b800;
+}
+.ccard-icon-level {
+  color: #3c8dbc;
+}
+
+.ccard-detail-label-icons {
+  font-size: 0.93rem;
+  color: #888;
+  font-weight: 400;
+  text-align: left;
+}
+
+.ccard-detail-value-icons {
+  font-size: 1.05rem;
+  color: #222;
+  font-weight: 500;
+  text-align: left;
+}
+
+.ccard-footer-icons {
+  background: #fafbfc;
+  border-top: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  /* margin-top: 10px; */
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.ccard-footer-left-icons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ccard-footer-item-icons {
+  display: flex;
+  align-items: center;
+  font-size: 0.99rem;
+  color: #888;
+  gap: 5px;
+  font-weight: 400;
+}
+
+.ccard-footer-icon-icons {
+  font-size: 1.08rem;
+  margin-right: 2px;
+  vertical-align: middle;
+}
+.ccard-footer-clock {
+  color: #888;
+}
+.ccard-footer-users {
+  color: #222;
+}
+.ccard-footer-bookmark {
+  color: #222;
+}
+
+.ccard-participate-btn-icons {
+  background: #3c5898;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 28px;
+  font-size: 1rem;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(60, 88, 152, 0.10);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+
+.ccard-participate-btn-icons:hover {
+  background: #2a3e6e;
+}
+
+.ccard-participate-icon-icons {
+  font-size: 1.1rem;
+}
+
+@media (max-width: 700px) {
+  .ccard-banner-row-icons {
+    height: 90px;
+  }
+  .ccard-exact-icons {
+    max-width: 100%;
+    border-radius: 10px;
+  }
+  .ccard-content-icons {
+    padding: 12px;
+  }
+  .ccard-banner-img-icons {
+    height: 90px;
+  }
+  .ccard-logo-circle-icons {
+    width: 60px;
+    height: 60px;
+  }
+  .ccard-logo-img-icons {
+    width: 100%;
+    height: 100%;
+  }
+  .ccard-footer-icons {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 16px;
+  }
+  .ccard-footer-left-icons {
+    justify-content: space-around;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .ccard-details-row-icons {
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+} 
+
+@media (max-width: 480px) {
+  .ccard-burst-badge-icons {
+    position: absolute;
+    top: -25px;
+    right: -14px;
+    width: 40px;
+    height: 40px;
+   
+}
+.ccard-burst-text {
+  font-size: 10px;
+}
+.ccard-detail-icons {
+  /* display: flex; */
+  flex-direction: column;
+  align-items: flex-start;
+  /* gap: 10px; */
+}
+.ccard-details-row-icons {
+  gap: 20px;
+  justify-content: space-between;
+}
+.row>* {
+  flex-shrink: 0;
+  /* width: 100%; */
+  max-width: 100%;
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+  margin-top: var(--bs-gutter-y);
+}
+.ccard-footer-icons , .ccard-content-icons {
+  padding: 10px;
+}
+.ccard-footer-left-icons {
+  justify-content: space-between;
+  gap: 1px;
+}
+}
+

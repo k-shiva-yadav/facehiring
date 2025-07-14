@@ -1,0 +1,332 @@
+/* CSS Variables */
+:root {
+    --border-radius: 8px;
+    --primary-color: #3C5898;
+    --secondary-color: #2D4375;
+    --light-bg: #F0F4FF;
+    --border-color: #E0E0E0;
+    --text-muted: #666;
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    --required-asterisk: #dc3545;
+  }
+  
+  /* Base Styles */
+  .register-container {
+    background-color: #F8F8F8;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    padding: 2rem;
+  }
+  
+  /* Sidebar Column */
+  .sidebar-col {
+    padding-right: 1rem;
+  }
+  
+  .sidebar-cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  /* Step Card Styles */
+  .step-card {
+    background-color: #FFFFFF;
+    border-radius: var(--border-radius);
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow);
+  }
+  
+  .step-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .step-card.active {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 12px rgba(60, 88, 152, 0.2);
+  }
+  
+  .step-card .card-body {
+    padding: 1rem 1.5rem;
+  }
+  
+  .step-content {
+    display: flex;
+    align-items: center;
+  }
+  
+  .step-logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 12px;
+  }
+  
+  .step-name {
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+  
+  /* Main Content Column */
+  .main-content-col {
+    padding-left: 1rem;
+  }
+  
+  /* Form Card Styles */
+  .form-card {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    border: none;
+    margin-bottom: 2rem;
+  }
+  
+  .form-card .card-body {
+    padding: 2rem;
+  }
+  
+  .form-section-title {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    font-size: 1.5rem;
+  }
+  
+  /* Form Elements */
+  .form-control {
+    border-radius: var(--border-radius);
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    font-size: 1rem;
+  }
+  
+  .form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(60, 88, 152, 0.25);
+  }
+  
+  .form-label {
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+  }
+  
+  /* Required Field Asterisk Styling */
+  .form-label.required {
+    position: relative;
+    color: #333;
+    font-weight: 500;
+  }
+  
+  /* Style for asterisks within required labels */
+  .required-asterisk {
+    color: var(--required-asterisk) !important;
+    font-size: 1.2rem !important;
+    font-weight: bold !important;
+  }
+  
+  /* Buttons */
+  .btn {
+    border-radius: var(--border-radius);
+    padding: 0.5rem 1.5rem;
+    font-weight: 500;
+    font-size: 1rem;
+  }
+  
+  .btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  
+  .btn-primary:hover {
+    background-color: #3C5898;
+    border-color: #3C5898;
+  }
+  
+  .btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  
+  .btn-outline-primary:hover {
+    background-color: #3C5898;
+    color: white;
+    border-color: #3C5898;
+  }
+  
+  .skip-btn {
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+  
+  .skip-btn:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+  }
+  
+  /* Skills Section */
+  .section-header {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #333;
+  }
+  
+  .skill-input,
+  .stream-input {
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 10px 15px;
+    width: 100%;
+    font-size: 1rem;
+  }
+  
+  .add-skill-btn {
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .add-skill-btn:hover {
+    background-color: #3C5898;
+    color: white;
+    border-color: #3C5898;
+  }
+  
+  /* Work Status Options */
+  .work-status-section h5 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+  
+  .status-option {
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: #FFFFFF;
+  }
+  
+  .status-option:hover {
+    border-color: var(--primary-color);
+    background-color: var(--light-bg);
+  }
+  
+  .status-option.active {
+    border-color: var(--primary-color);
+    background-color: var(--light-bg);
+  }
+  
+  .status-option h6 {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+  }
+  
+  .status-option p {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    margin: 0;
+  }
+  
+  /* Experience Form */
+  .experience-form {
+    background-color: #f9faff;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    border: 1px solid #e0e6ff;
+  }
+  
+  .notice-period-btn:hover,
+  .industry-btn:hover {
+    background-color: #3C5898;
+    color: white;
+    border-color: #3C5898;
+  }
+  
+  /* Upload Boxes */
+  .upload-box {
+    border: 1px dashed var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    text-align: center;
+    background-color: #FFFFFF;
+  }
+  
+  .upload-box p {
+    margin-bottom: 1rem;
+    color: var(--text-muted);
+    font-size: 1rem;
+  }
+  
+  .upload-box .small-text {
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+  }
+  
+  .upload-btn {
+    margin-top: 1rem;
+  }
+  
+  .add-education-btn,
+  .add-experience-btn {
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .add-education-btn:hover,
+  .add-experience-btn:hover {
+    background-color: #3C5898;
+    color: white;
+    border-color: #3C5898;
+  }
+  
+  .form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+  }
+  
+  .progress {
+    height: 8px;
+    border-radius: 4px;
+  }
+  
+  @media (max-width: 768px) {
+    .register-container {
+      padding: 1rem;
+    }
+  
+    .sidebar-col {
+      margin-bottom: 1rem;
+    }
+  
+    .main-content-col {
+      padding-left: 0;
+    }
+  
+    .sidebar-cards-container {
+      flex-direction: row;
+      overflow-x: auto;
+      gap: 0.5rem;
+    }
+  
+    .step-card {
+      min-width: 200px;
+    }
+  }

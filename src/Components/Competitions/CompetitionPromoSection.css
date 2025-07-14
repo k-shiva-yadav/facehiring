@@ -1,0 +1,139 @@
+.competition-promo-section {
+  margin-top: 2rem;
+}
+
+.promo-card {
+  background: #ffe6b3;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.promo-hiring {
+  background: #FFD691;
+}
+
+.promo-showcase {
+  background: #DDF0F6;
+  margin-top: 1rem;
+}
+
+.promo-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2d2d2d;
+  letter-spacing: 1px;
+}
+
+.promo-subtitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #222;
+  text-align: center;
+}
+.promo-subtitle-small{
+  color: gray;
+  text-align: center;
+  font-size: 18px;
+}
+
+.promo-btn {
+  background: #3C5898;
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 10px 32px;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  transition: background 0.2s;
+}
+.promo-btn:hover {
+  background: #2d4373;
+}
+.btn-explore {
+  background: #3C5898;
+  text-align: center;
+  margin: 0.5rem auto 0;
+}
+@media (min-width: 768px) {
+  .text-md-start {
+      text-align: center !important;
+  }
+}
+
+.promo-img {
+  max-width: 240px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mini-card, .mini-card-2, .mini-card-3{
+  border-radius: 16px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.mini-card{
+  background: #E2D9FF;
+}
+.mini-card-2{
+  background: #FFD3FF;
+}
+.mini-card-3{
+  background: #FFD4C0;
+}
+.set-aced-text{
+  font-weight: 700;
+  font-size: 20px;
+}
+.mini-icon {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+}
+
+@media (max-width: 1300px) {
+  .promo-card, .promo-showcase {
+    min-height: 180px;
+    flex-direction: column !important;
+    text-align: center;
+  }
+  .promo-img {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .competition-promo-section {
+    margin-top: 1rem;
+    padding: 0px;
+  }
+  .promo-card, .promo-showcase {
+    min-height: 140px;
+    padding: 1.2rem 0.7rem;
+  }
+  .mini-card {
+    min-height: 90px;
+    font-size: 1rem;
+  }
+  .promo-title {
+    font-size: 1.1rem;
+  }
+  .promo-subtitle {
+    font-size: 1rem;
+  }
+  .promo-btn {
+    padding: 8px 18px;
+    font-size: 0.95rem;
+  }
+} 

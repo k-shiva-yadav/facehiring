@@ -1,0 +1,44 @@
+.step {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.step-number {
+    /* font-family: Inter; */
+    font-weight: 400;
+    font-size: 160px;
+    color: #2C7EFE;
+    margin-right:40px;
+}
+
+.step-text {
+    /* font-family: Inter; */
+    font-weight: 500;
+    font-size: 20px;
+    color: #8A8A8A;
+    text-align:left;
+}
+
+.step-heading {
+    /* font-family: Inter; */
+    font-weight: 600;
+    font-size: 24px;
+    color: #000;
+    text-align:left;
+}
+
+.step-content {
+    /* font-family: Inter; */
+    font-weight: 400;
+    font-size: 22px;
+    /* color: #000; */
+    text-align:left;
+}
+.step-content-heading{
+    /* font-family: Inter; */
+    font-weight: 500;
+    font-size: 22px;
+    color: #000;
+    text-align:left;
+}

@@ -1,0 +1,353 @@
+.wide-card-v2 {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 0px 12px 0 rgba(60, 88, 152, 0.10);
+  padding: 32px 32px 24px 32px;
+  margin-bottom: 24px;
+  font-family: 'Inter', Arial, sans-serif;
+  min-height: 180px;
+}
+.wide-card-category-pill-v2 {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  background: #fff;
+  border: 1px solid #E6E6E6;
+  border-radius: 24px;
+  padding: 6px 28px;
+  font-size: 1.1rem;
+  color: #222;
+  font-weight: 500;
+  z-index: 2;
+}
+.wide-card-left-v2 {
+  display: flex;
+  align-items: flex-start;
+  flex: 1;
+  min-width: 0;
+}
+.wide-card-logo-v2 {
+  flex-shrink: 0;
+  margin-right: 24px;
+  margin-top: 8px;
+}
+.wide-card-logo-v2 img {
+  width: 96px;
+  height: 96px;
+  border-radius: 16px;
+  object-fit: cover;
+  background: #f5f5f5;
+}
+.wide-card-main-v2 {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.wide-card-title-row-v2 {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 2px;
+}
+.wide-card-title-v2 {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #222;
+  line-height: 1.2;
+}
+.wide-card-status-pill-v2 {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 4px 18px;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  background: #fffbe6;
+  color: #e6a100;
+  border: none;
+}
+.wide-card-status-pill-v2.online {
+  background: #e6f4ea;
+  color: #1aaf5d;
+}
+.wide-card-status-pill-v2.offline {
+  background: #fffbe6;
+  color: #e6a100;
+}
+.wide-card-subtitle-v2 {
+  font-size: 1.1rem;
+  color: #222;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+.wide-card-desc-v2 {
+  color: #444;
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+  text-align: left;
+}
+.wide-card-meta-v2 {
+  margin-bottom: 8px;
+}
+.wide-card-meta-location-v2 {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #666;
+  font-size: 1rem;
+  margin-bottom: 2px;
+}
+.wide-card-meta-date-v2 {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #666;
+  font-size: 1rem;
+}
+.wide-card-details-row-v2 {
+  display: flex;
+  gap: 32px;
+  margin: 10px 0 0 0;
+  color: #222;
+  font-size: 1rem;
+}
+.wide-card-detail-block-v2 {
+  display: flex;
+  align-items: center;
+  background: #F7F7F7;
+  border-radius: 12px;
+  padding: 8px 18px;
+  min-width: 180px;
+  gap: 12px;
+}
+.wide-card-detail-icon-bg {
+  background: #eaeaea;
+  border-radius: 8px;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+}
+.wide-card-detail-icon-img {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+.wide-card-detail-block-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.wide-card-detail-label-v2 {
+  color: #888;
+  font-size: 0.98rem;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+.wide-card-detail-value-v2 {
+  color: #222;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+.wide-card-cash-v2 {
+  display: inline-flex;
+  align-items: center;
+  background: #FFEBA0;
+  color: #222;
+  border-radius: 0 0 0 0;
+  padding: 10px 28px 10px 18px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 18px 0 0 0;
+  position: relative;
+  min-width: 220px;
+  gap: 10px;
+}
+
+.wide-card-cash-v2::after {
+  content: "";
+  position: absolute;
+  right: -32px;
+  top: -3px;
+  width: 0;
+  height: 0;
+  border-top: 28px solid transparent;
+  border-bottom: 28px solid transparent;
+  border-left: 32px solid #FFEBA0;
+  z-index: 1;
+}
+
+.wide-card-trophy-icon-v2 {
+  width: 30px;
+  height: 30px;
+  margin-right: 4px;
+}
+.wide-card-actions-v2 {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  min-width: 180px;
+}
+.wide-card-bookmark-container-v2 {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 1px 4px rgba(60,88,152,0.06);
+}
+.wide-card-bookmark-v2 {
+  font-size: 1.6rem;
+  color: #222;
+  cursor: pointer;
+}
+.wide-card-register-group-v2 {
+  display: flex;
+  align-items: center;
+  background: #3C5898;
+  border-radius: 12px;
+  overflow: hidden;
+  min-width: 160px;
+  box-shadow: 0 2px 8px rgba(60, 88, 152, 0.10);
+}
+.wide-card-price-v2 {
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: 600;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.wide-card-divider-v2 {
+  width: 1px;
+  height: 32px;
+  background: #fff;
+  opacity: 0.4;
+}
+.wide-card-register-btn-v2 {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.08rem;
+  font-weight: 600;
+  padding: 0 28px;
+  height: 48px;
+  cursor: pointer;
+  transition: background 0.2s;
+  border-radius: 0 12px 12px 0;
+  display: flex;
+  align-items: center;
+}
+.wide-card-register-btn-v2:hover {
+  background: #2a3e6e;
+}
+
+/* === Responsive Styles === */
+
+/* Tablet and below */
+@media (max-width: 1024px) {
+  .wide-card-v2 {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+  }
+  .wide-card-actions-v2 {
+    align-self: flex-end;
+    margin-top: 16px;
+  }
+  .wide-card-category-pill-v2 {
+    top: 16px;
+    right: 16px;
+    padding: 6px 20px;
+    font-size: 1rem;
+  }
+}
+
+/* Mobile landscape and below */
+@media (max-width: 768px) {
+  .wide-card-v2 {
+    padding: 24px;
+  }
+  .wide-card-left-v2 {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+  }
+  .wide-card-logo-v2 {
+    margin-right: 0;
+  }
+  .wide-card-main-v2 {
+    align-items: center;
+  }
+  .wide-card-title-row-v2 {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+  .wide-card-title-v2 {
+    font-size: 1.25rem;
+  }
+  .wide-card-details-row-v2 {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+  .wide-card-detail-block-v2 {
+    min-width: unset;
+    justify-content: flex-start;
+  }
+  .wide-card-meta-v2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  .wide-card-cash-v2 {
+    padding: 8px 16px;
+    border-radius: 8px;
+    margin-top: 16px;
+    justify-content: center;
+    min-width: unset;
+    width: 100%;
+  }
+  .wide-card-cash-v2::after {
+    display: none; /* Hide arrow shape on mobile */
+  }
+  .wide-card-actions-v2 {
+    width: 100%;
+    margin-top: 0px;
+    justify-content: space-between;
+  }
+}
+
+/* Mobile portrait */
+@media (max-width: 480px) {
+  .wide-card-v2 {
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  .wide-card-category-pill-v2 {
+    display: none;
+  }
+
+  .wide-card-register-group-v2,
+  .wide-card-register-btn-v2 {
+    width: 100%;
+  }
+  .wide-card-register-group-v2 {
+    justify-content: space-between;
+  }
+  .wide-card-bookmark-container-v2 {
+    align-self: center;
+  }
+}

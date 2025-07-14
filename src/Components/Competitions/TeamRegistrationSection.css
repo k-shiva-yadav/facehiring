@@ -1,0 +1,176 @@
+.team-registration-section {
+  background: #fff;
+  border-radius: 12px;
+  max-width: 700px;
+  margin: 40px auto;
+  box-shadow: 0 2px 16px rgba(44, 62, 80, 0.08);
+  padding: 32px 40px 24px 40px;
+}
+.team-header {
+  align-items: center;
+  gap: 16px;
+}
+.team-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  object-fit: cover;
+  background: #f5f5f5;
+}
+.team-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #222;
+}
+.team-tab {
+  background: #3C5898;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border-radius: 0 0 0 0;
+  padding: 10px 32px;
+  margin: 0 -40px 32px -40px;
+  border-top-left-radius: 4px;
+}
+.team-label {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+  display: block;
+}
+.team-input {
+  border-radius: 8px;
+  font-size: 1rem;
+  padding: 12px 16px;
+  border: 1px solid #d9d9d9;
+  background: #fafbfc;
+}
+.team-mates-label {
+  font-weight: 500;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.team-mates-grid {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.team-member-card {
+  background: #E6EEFF;
+  border-radius: 12px;
+  padding: 18px 24px 12px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 140px;
+  min-height: 140px;
+  position: relative;
+}
+.team-member-avatar {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 10px;
+}
+.team-member-avatar img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 8px rgba(44,62,80,0.08);
+}
+.edit-icon {
+  position: absolute;
+  top: 0;
+  right: -10px;
+  background: #fff;
+  border-radius: 50%;
+  padding: 3px;
+  font-size: 14px;
+  color: #3C5898;
+  border: 1px solid #d9d9d9;
+  cursor: pointer;
+}
+.team-member-name {
+  font-weight: 500;
+  font-size: 1rem;
+  color: #222;
+  text-align: center;
+}
+.team-add-card {
+  border: 1.5px dashed #3C5898;
+  border-radius: 12px;
+  min-width: 140px;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #3C5898;
+  background: #fff;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.team-add-card:hover {
+  background: #f5f8ff;
+}
+.team-add-plus {
+  font-size: 2rem;
+  font-weight: 600;
+}
+.team-add-label {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 6px;
+}
+.team-actions {
+  margin-top: 32px;
+}
+.team-btn {
+  min-width: 120px;
+  padding: 12px 0;
+  border-radius: 24px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  outline: none;
+  transition: background 0.15s;
+}
+.team-btn-back {
+  background: #fff;
+  color: #3C5898;
+  border: 1.5px solid #d9d9d9;
+  box-shadow: 0 2px 8px rgba(44,62,80,0.04);
+}
+.team-btn-next {
+  background: #3C5898;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(44,62,80,0.08);
+}
+.team-btn-back:hover {
+  background: #f5f8ff;
+}
+.team-btn-next:hover {
+  background: #2a4170;
+}
+@media (max-width: 768px) {
+  .team-registration-section {
+    padding: 18px 8px 12px 8px;
+    max-width: 98vw;
+  }
+  .team-tab {
+    padding: 10px 12px;
+    margin: 0 -8px 24px -8px;
+  }
+  .team-mates-grid {
+    gap: 12px;
+  }
+  .team-member-card, .team-add-card {
+    min-width: 110px;
+    min-height: 110px;
+    padding: 10px 8px 8px 8px;
+  }
+} 

@@ -1,0 +1,354 @@
+/* feed.css */
+
+/* Base styles */
+.post-composer {
+  background: #ffffff;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  position: relative;
+  /* margin-top: 19px; */
+}
+
+/* Audience selector */
+.post-audience {
+  display: flex;
+  align-items: center;
+  padding: 6px 12px;
+  background: #f3f6f8;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #666666;
+  margin-bottom: 12px;
+  width: fit-content;
+  cursor: pointer;
+}
+
+/* Input area */
+.post-input {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.post-input img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  /* object-fit: cover; */
+  margin-right: 12px;
+}
+
+.post-input textarea {
+  flex: 1;
+  border: none;
+  resize: none;
+  min-height: 60px;
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 8px;
+  color: #333333;
+}
+
+.post-input textarea::placeholder {
+  color: #999999;
+  font-weight: 400;
+}
+
+.post-input textarea:focus {
+  outline: none;
+}
+
+/* Action buttons */
+.post-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid #e6e6e6;
+}
+
+.media-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.media-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: none;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #666666;
+  cursor: pointer;
+}
+
+.media-button:hover {
+  background-color: #f3f6f8;
+}
+
+.media-button img {
+  width: 24px;
+  height: 24px;
+}
+
+.post-button {
+  background-color: #0a66c2;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.post-button:hover {
+  background-color: #004182;
+}
+
+.post-button:disabled {
+  background-color: #e6e6e6;
+  color: #999999;
+  cursor: not-allowed;
+}
+
+/* Media preview modal */
+.media-preview-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  padding: 20px;
+}
+
+.media-preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.media-preview-header h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #333;
+}
+.close-preview-text {
+  background-color: transparent;
+  border: none;
+  color: #0073b1;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.close-preview-text:hover {
+  text-decoration: underline;
+}
+
+.close-preview {
+  background-color: #0a66c2;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.post-content-preview textarea {
+  width: 100%;
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
+  padding: 12px;
+  font-size: 16px;
+  margin-bottom: 16px;
+  resize: none;
+}
+
+.media-preview-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.media-preview-item {
+  position: relative;
+  width: calc(50% - 5px);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.media-preview-item img,
+.media-preview-item video {
+  width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+  background: #f3f6f8;
+}
+
+.remove-media {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.preview-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Status messages */
+.post-error {
+  color: #d32f2f;
+  padding: 8px;
+  margin-top: 8px;
+  font-size: 14px;
+  background: #ffebee;
+  border-radius: 4px;
+}
+
+.post-success {
+  color: #2e7d32;
+  padding: 8px;
+  margin-top: 8px;
+  font-size: 14px;
+  background: #e8f5e9;
+  border-radius: 4px;
+}
+
+/* Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+.media-preview-item.add-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  margin: 8px;
+}
+
+.media-preview-item.add-more button {
+  font-size: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #555;
+}
+.char-count {
+  text-align: right;
+  font-size: 12px;
+  color:#000000;
+  margin: 8px 0; 
+}
+/* src/components/Feed/post.css */
+.reaction-container {
+  position: relative;
+  display: inline-block;
+}
+
+.reaction-bar {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  padding: 5px;
+  z-index: 10;
+  animation: fadeIn 0.2s ease-in;
+}
+
+.reaction-button {
+  background: none;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 24px;
+  transition: transform 0.2s;
+}
+
+.reaction-button:hover {
+  transform: scale(1.2);
+}
+
+.reaction-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.post {
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+
+.post-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.post-action-btn:hover {
+  color: #0a66c2;
+  background: #f0f2f5;
+}
+
+.post-action-icon {
+  font-size: 1.2rem;
+}
+
+/* Existing styles for other elements (e.g., post-header, post-media) remain unchanged */

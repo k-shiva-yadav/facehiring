@@ -1,0 +1,408 @@
+.job-description-page {
+  min-height: 100vh;
+  background-color: #f3f6f8;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.progress-text {
+  color: #888;
+  font-size: 13px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.job-description-header {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 16px 0 20px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.job-card {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.job-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.edit-icon {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #3C5898;
+  flex-shrink: 0;
+  padding: 4px;
+}
+
+.company-info {
+  font-size: 13px;
+  color: #444;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+.description-note {
+  font-size: 12px;
+  color: #777;
+  margin: 12px 0 8px;
+}
+
+.quill-editor {
+  margin-bottom: 16px;
+  background: white;
+  min-height: 200px;
+}
+
+.footer-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.back-button, .continue-button {
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  transition: background 0.3s;
+  min-width: 80px;
+  flex: 1;
+  max-width: 120px;
+}
+
+.back-button {
+  background: #eee;
+  color: #333;
+}
+
+.back-button:hover {
+  background: #ddd;
+}
+
+.continue-button {
+  background: #3C5898;
+  color: white;
+}
+
+.continue-button:hover {
+  background: #324a82;
+}
+
+/* Popup modal styles */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
+  z-index: 1000;
+}
+
+.popup-modal {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.popup-modal h3 {
+  margin-bottom: 12px;
+  color: #3C5898;
+  font-size: 16px;
+}
+
+.popup-modal label {
+  font-size: 13px;
+  display: block;
+  margin-top: 8px;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.popup-modal input,
+.popup-modal select {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.popup-modal input:focus,
+.popup-modal select:focus {
+  outline: none;
+  border-color: #3C5898;
+  box-shadow: 0 0 0 2px rgba(60, 88, 152, 0.1);
+}
+
+.popup-actions {
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.cancel-btn {
+  background: #eee;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.save-btn {
+  /* background: #3C5898; */
+  /* color: white; */
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Tablet Responsive */
+@media (min-width: 768px) {
+  .job-description-page {
+    padding: 24px;
+  }
+  
+  .progress-text {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .job-description-header {
+    font-size: 22px;
+    margin: 20px 0 30px;
+  }
+  
+  .job-card {
+    padding: 30px;
+    max-width: 800px;
+  }
+  
+  .job-card-header {
+    gap: 15px;
+  }
+  
+  .edit-icon {
+    font-size: 20px;
+  }
+  
+  .company-info {
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  .description-note {
+    font-size: 13px;
+    margin: 15px 0 10px;
+  }
+  
+  .quill-editor {
+    margin-bottom: 20px;
+    min-height: 250px;
+  }
+  
+  .footer-buttons {
+    margin-top: 20px;
+    gap: 16px;
+  }
+  
+  .back-button, .continue-button {
+    padding: 12px 25px;
+    font-size: 14px;
+    max-width: 140px;
+  }
+  
+  .popup-modal {
+    padding: 25px 30px;
+  }
+  
+  .popup-modal h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  
+  .popup-modal label {
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+  
+  .popup-modal input,
+  .popup-modal select {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+  
+  .popup-actions {
+    margin-top: 20px;
+    gap: 12px;
+  }
+  
+  .cancel-btn,
+  .save-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+/* Desktop Responsive */
+@media (min-width: 1024px) {
+  .job-card {
+    max-width: 900px;
+  }
+  
+  .job-description-header {
+    font-size: 24px;
+  }
+  
+  .popup-modal {
+    max-width: 450px;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1200px) {
+  .job-card {
+    max-width: 1000px;
+  }
+}
+
+/* Mobile Landscape */
+@media (max-width: 767px) and (orientation: landscape) {
+  .job-description-page {
+    padding: 12px;
+  }
+  
+  .job-card {
+    padding: 16px;
+  }
+  
+  .popup-modal {
+    max-height: 80vh;
+  }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 480px) {
+  .job-description-page {
+    padding: 12px;
+  }
+  
+  .progress-text {
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+  
+  .job-description-header {
+    font-size: 16px;
+    margin: 12px 0 16px;
+  }
+  
+  .job-card {
+    padding: 16px;
+    border-radius: 8px;
+  }
+  
+  .job-card-header {
+    gap: 8px;
+  }
+  
+  .edit-icon {
+    font-size: 16px;
+  }
+  
+  .company-info {
+    font-size: 12px;
+  }
+  
+  .description-note {
+    font-size: 11px;
+    margin: 8px 0 6px;
+  }
+  
+  .quill-editor {
+    margin-bottom: 12px;
+    min-height: 180px;
+  }
+  
+  .footer-buttons {
+    margin-top: 12px;
+    gap: 8px;
+  }
+  
+  .back-button, .continue-button {
+    padding: 8px 16px;
+    font-size: 13px;
+    min-width: 70px;
+    max-width: 100px;
+  }
+  
+  .popup-overlay {
+    padding: 12px;
+  }
+  
+  .popup-modal {
+    padding: 16px;
+    border-radius: 8px;
+  }
+  
+  .popup-modal h3 {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  
+  .popup-modal label {
+    font-size: 12px;
+    margin-top: 6px;
+    margin-bottom: 3px;
+  }
+  
+  .popup-modal input,
+  .popup-modal select {
+    padding: 6px 8px;
+    font-size: 13px;
+  }
+  
+  .popup-actions {
+    margin-top: 12px;
+    gap: 6px;
+  }
+  
+  .cancel-btn,
+  .save-btn {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+}

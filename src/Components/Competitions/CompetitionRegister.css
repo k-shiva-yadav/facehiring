@@ -1,0 +1,134 @@
+.competition-details-page {
+  background: #F3F3F3;
+  margin: 0px 0px 10px;
+  padding: 20px 0px;
+}
+
+.competition-details-inner-width {
+  width: 85%;
+  margin: 0px auto;
+}
+@media (max-width: 1300px) {
+  .competition-details-inner-width {
+    width: 100%;
+  }  
+}
+.back-button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin: 16px 0 8px 0;
+}
+.back-button {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 6px 18px;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(60,88,152,0.06);
+}
+.details-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px 48px;
+  margin: 32px 0;
+  box-shadow: 0 1px 4px rgba(60,88,152,0.06);
+  text-align: left;
+}
+.details-card h2 {
+  margin-bottom: 12px;
+  text-align: left;
+}
+.eligibility-info {
+  font-size: 20px;
+  color: #444;
+  text-align: left;
+}
+.about-card {
+  color: #222;
+  font-size: 17px;
+  line-height: 1.7;
+}
+.about-card h2 {
+    font-size: 26px;
+    margin-bottom: 18px;
+}
+.about-card p {
+    margin-bottom: 18px;
+}
+.about-card b {
+    font-weight: 600;
+}
+.about-card ul {
+    margin-top: 6px;
+    padding-left: 20px;
+}
+.timeline-card .date-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    color: #444;
+    flex-wrap: wrap;
+}
+.organizer-card .organizer-info {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+.organizer-avatar {
+    background: #f1f1f1;
+    border-radius: 6px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: #444;
+    font-size: 16px;
+}
+.prize-card .prize-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fafbfc;
+    border-radius: 10px;
+    padding: 22px 24px;
+    margin-bottom: 18px;
+    border: 1px solid #eee;
+}
+.prize-item img {
+    width: 70px;
+    height: 70px;
+}
+.certificate-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #e9f0fb;
+    color: #3C5898;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 18px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+
+    .details-card {
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+    }
+    .prize-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+}
+
+
+

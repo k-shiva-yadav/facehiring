@@ -1,0 +1,293 @@
+/* Modern Modal Styles */
+.modernModal {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    animation: slideIn 0.3s ease-out;
+    overflow: hidden;
+}
+.customModalContent {
+    background: white;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 20px;
+    position: relative;
+}
+.styles.customCloseButton {
+    margin-right: 20px;
+    padding: 5px 10px;
+    color: #333;
+    transition: background-color 0.3s ease;
+}
+
+.customCloseButton:hover {
+    background-color: #f0f0f0;
+    color: #333;
+}
+/* Custom class for modal-content with higher specificity */
+:global(.modal-content).customModalContent {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 16px !important;
+    box-shadow: none !important;
+    width: 100% !important; /* Reset width to fill modal-dialog */
+    max-width: none !important; /* Remove max-width restriction */
+    max-height: none !important; /* Let modernModalBody handle height */
+    overflow-y: hidden !important; /* Prevent scrollbar on modal-content */
+    padding: 0 !important; /* Remove padding, as it's handled by header/body */
+    position: static !important; /* Reset position */
+}
+
+/* Override modal-dialog to prevent scrollbar */
+.modernModalDialog {
+    overflow: hidden;
+    max-width: 800px;
+}
+
+/* Ensure the parent Row and Col don't introduce scrollbars */
+.modalParentRow {
+    overflow: visible !important;
+}
+
+.modalParentCol {
+    overflow: visible !important;
+}
+
+/* Modal Header */
+.modernModalHeader {
+    background: linear-gradient(135deg, #0073b1, #00a1d6);
+    border-bottom: none;
+    padding: 20px 24px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    position: relative;
+}
+
+.modernModalTitle {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+
+/* Custom Close Button */
+.customCloseButton {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    font-size: 30px;
+    font-weight: 700;
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+    background: none;
+    border: none;
+    padding: 0;
+    line-height: 1;
+}
+
+.customCloseButton:hover {
+    color: #f1f5f9;
+    transform: scale(1.2);
+}
+
+/* Modal Body */
+.modernModalBody {
+    background: #f8fafc;
+    padding: 24px;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+/* Form Inputs */
+.modernInput {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 16px;
+    color: #1a202c;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.05), inset -2px -2px 5px rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+}
+
+.modernInput:focus {
+    border-color: #0073b1;
+    box-shadow: 0 0 0 3px rgba(0, 115, 177, 0.2);
+    background: #ffffff;
+}
+
+/* Textarea */
+.modernInput.textarea {
+    resize: vertical;
+}
+
+/* Checkbox */
+.modernCheckbox {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #1a202c;
+}
+
+.modernCheckbox input {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    accent-color: #0073b1;
+    cursor: pointer;
+}
+
+/* Buttons */
+.modernButton {
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.modernButtonPrimary {
+    background: linear-gradient(135deg, #0073b1, #00a1d6);
+    border: none;
+    color: #ffffff;
+}
+
+.modernButtonPrimary:hover {
+    background: linear-gradient(135deg, #005b8c, #0087b8);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 115, 177, 0.3);
+}
+
+.modernButtonPrimary:disabled {
+    background: #b0b0b0;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.modernButtonSecondary {
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    color: #1a202c;
+}
+
+.modernButtonSecondary:hover {
+    background: #f1f5f9;
+    border-color: #0073b1;
+    color: #0073b1;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.modernButtonSecondary:disabled {
+    background: #f1f5f9;
+    border-color: #d1d5db;
+    color: #b0b0b0;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Link Button */
+.modernLink {
+    color: #0073b1;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.modernLink:hover {
+    color: #005b8c;
+    text-decoration: underline;
+}
+
+/* Alert */
+.modernAlert {
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 16px;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Scrollbar Styling */
+.modernModalBody::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modernModalBody::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 4px;
+}
+
+.modernModalBody::-webkit-scrollbar-thumb {
+    background: #0073b1;
+    border-radius: 4px;
+}
+
+.modernModalBody::-webkit-scrollbar-thumb:hover {
+    background: #005b8c;
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+    .modernModal {
+        margin: 16px;
+    }
+
+    .modernModalTitle {
+        font-size: 20px;
+    }
+
+    .modernModalBody {
+        padding: 16px;
+    }
+
+    .modernInput {
+        font-size: 14px;
+        padding: 10px 12px;
+    }
+
+    .modernButton {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+
+    .customCloseButton {
+        font-size: 24px;
+        top: 16px;
+        right: 16px;
+    }
+}

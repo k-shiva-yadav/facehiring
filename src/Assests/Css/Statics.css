@@ -1,0 +1,28 @@
+.statics{
+    background-color: #E1EAFF;
+    padding: 30px;
+}
+.countnum{
+    font-family: Inter;
+    font-weight: 600;
+    font-size: 58px;
+    color: #3C5898;
+    margin-right: 10px;
+}
+.counttext{
+    font-family: Inter;
+    font-weight: 500;
+    font-size: 20px;
+    color: #000;
+    text-align: left;
+}
+.statics-box{
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+}
+ .border-section{
+    border-right: 1px solid #B2CAFF;
+    opacity: 1;
+    height: 55px;
+ }
