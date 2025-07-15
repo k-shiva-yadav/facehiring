@@ -218,65 +218,140 @@ function Experience() {
     }
   };
 
-  const submitExperiences = async () => {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      navigate("/login");
-      throw new Error("Please log in to continue.");
+  // const submitExperiences = async () => {
+  //   const token = localStorage.getItem("token");
+  //   if (!token) {
+  //     navigate("/login");
+  //     throw new Error("Please log in to continue.");
+  //   }
+  //   if (!currentUserId) {
+  //     navigate("/register");
+  //     throw new Error("Please complete Basic Information first.");
+  //   }
+
+  //   try {
+  //     const promises = formData.experiences.map((exp) =>
+  //       axios.post(
+  //         "https://facehiringapi.codingster.in/User/Add_Experience",
+  //         {
+  //           userId: currentUserId,
+  //           totalExperience: exp.totalExperience,
+  //           designation: exp.designation,
+  //           companyName: exp.companyName,
+  //           typeOfEmployment: exp.typeOfEmployment,
+  //           achievements: exp.achievements,
+  //           companyUrl: exp.companyUrl,
+  //           annualSalary: exp.annualSalary,
+  //           noticePeriod: exp.noticePeriod,
+  //           industry: exp.industry,
+  //           responsibilities: exp.responsibilities,
+  //           isCurrentEmployee: exp.isCurrentEmployee,
+  //         },
+  //         {
+  //           headers: {
+  //             Authorization: `Bearer ${token}`,
+  //             "Content-Type": "application/json",
+  //           },
+  //         }
+  //       )
+  //     );
+  //     const responses = await Promise.all(promises);
+  //     console.log("Experiences submitted:", responses.map((res) => res.data));
+  //     setIsFresher(false);
+  //     setFormData((prev) => ({ ...prev, isFresher: false }));
+  //     return responses.map((res) => res.data);
+  //   } catch (error) {
+  //     console.error("Experience submission error:", {
+  //       status: error.response?.status,
+  //       data: error.response?.data,
+  //       message: error.message,
+  //     });
+  //     if (error.response?.status === 401) {
+  //       logout();
+  //       navigate("/login");
+  //       throw new Error("Authentication failed. You have been logged out.");
+  //     }
+  //     throw new Error(
+  //       error.response?.data?.message ||
+  //         "Failed to save experiences. Please try again."
+  //     );
+  //   }
+  // };
+const submitExperiences = async () => {
+  const token = localStorage.getItem("token");
+
+  if (!token) {
+    navigate("/login");
+    throw new Error("Please log in to continue.");
+  }
+
+  if (!currentUserId) {
+    navigate("/register");
+    throw new Error("Please complete Basic Information first.");
+  }
+
+  // 👇 Helper to safely convert salary
+  const convertSalaryToNumber = (salary) => {
+    if (!salary) return null;
+    if (salary.includes("+")) {
+      return parseInt(salary); // "10+" => 10
     }
-    if (!currentUserId) {
-      navigate("/register");
-      throw new Error("Please complete Basic Information first.");
+    const num = parseFloat(salary);
+    return isNaN(num) ? null : num;
+  };
+
+  try {
+    const promises = formData.experiences.map((exp) =>
+      axios.post(
+        "https://facehiringapi.codingster.in/User/Add_Experience",
+        {
+          userId: currentUserId,
+          totalExperience: exp.totalExperience,
+          designation: exp.designation,
+          companyName: exp.companyName,
+          typeOfEmployment: exp.typeOfEmployment,
+          achievements: exp.achievements || null,
+          companyUrl: exp.companyUrl || null,
+          annualSalary: convertSalaryToNumber(exp.annualSalary), // 👈 converted to number
+          noticePeriod: exp.noticePeriod || null,
+          industry: exp.industry || null,
+          responsibilities: exp.responsibilities || null,
+          isCurrentEmployee: exp.isCurrentEmployee || false,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      )
+    );
+
+    const responses = await Promise.all(promises);
+    console.log("Experiences submitted:", responses.map((res) => res.data));
+    setIsFresher(false);
+    setFormData((prev) => ({ ...prev, isFresher: false }));
+    return responses.map((res) => res.data);
+  } catch (error) {
+    console.error("Experience submission error:", {
+      status: error.response?.status,
+      data: error.response?.data,
+      message: error.message,
+    });
+
+    if (error.response?.status === 401) {
+      logout();
+      navigate("/login");
+      throw new Error("Authentication failed. You have been logged out.");
     }
 
-    try {
-      const promises = formData.experiences.map((exp) =>
-        axios.post(
-          "https://facehiringapi.codingster.in/User/Add_Experience",
-          {
-            userId: currentUserId,
-            totalExperience: exp.totalExperience,
-            designation: exp.designation,
-            companyName: exp.companyName,
-            typeOfEmployment: exp.typeOfEmployment,
-            achievements: exp.achievements,
-            companyUrl: exp.companyUrl,
-            annualSalary: exp.annualSalary,
-            noticePeriod: exp.noticePeriod,
-            industry: exp.industry,
-            responsibilities: exp.responsibilities,
-            isCurrentEmployee: exp.isCurrentEmployee,
-          },
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-              "Content-Type": "application/json",
-            },
-          }
-        )
-      );
-      const responses = await Promise.all(promises);
-      console.log("Experiences submitted:", responses.map((res) => res.data));
-      setIsFresher(false);
-      setFormData((prev) => ({ ...prev, isFresher: false }));
-      return responses.map((res) => res.data);
-    } catch (error) {
-      console.error("Experience submission error:", {
-        status: error.response?.status,
-        data: error.response?.data,
-        message: error.message,
-      });
-      if (error.response?.status === 401) {
-        logout();
-        navigate("/login");
-        throw new Error("Authentication failed. You have been logged out.");
-      }
-      throw new Error(
-        error.response?.data?.message ||
-          "Failed to save experiences. Please try again."
-      );
-    }
-  };
+    throw new Error(
+      error.response?.data?.message ||
+        "Failed to save experiences. Please try again."
+    );
+  }
+};
+
 
   const handleSubmit = async () => {
     if (!selectedOption) {
@@ -432,11 +507,16 @@ function Experience() {
                   </Button>
                 )}
 
-                <h5 className="mb-4">
-                  {index === 0
-                    ? "Current/Most Recent Experience<span className=\"required-asterisk\">*</span>"
-                    : `Experience ${index + 1}`}
-                </h5>
+              <h5 className="mb-4">
+  {index === 0 ? (
+    <>
+      Current/Most Recent Experience
+      <span className="required-asterisk">*</span>
+    </>
+  ) : (
+    `Experience ${index + 1}`
+  )}
+</h5>
 
                 <Row>
                   <Col md={6}>
@@ -565,7 +645,7 @@ function Experience() {
 
                 <Row>
                   <Col md={6}>
-                    <Form.Group className="mb-3">
+                    {/* <Form.Group className="mb-3">
 <Form.Label className="required">Annual Salary<span className="required-asterisk">*</span> (LPA)</Form.Label>
 <Form.Select
   value={exp.annualSalary}
@@ -593,7 +673,47 @@ function Experience() {
 <Form.Control.Feedback type="invalid">
   {errors[`exp_${index}_annualSalary`]}
 </Form.Control.Feedback>
+</Form.Group> */}
+
+<Form.Group className="mb-3">
+  <Form.Label className="required">
+    Annual Salary<span className="required-asterisk">*</span> (LPA)
+  </Form.Label>
+  <Form.Select
+    value={exp.annualSalary}
+    onChange={(e) =>
+      handleExperienceChange(index, "annualSalary", e.target.value)
+    }
+    isInvalid={!!errors[`exp_${index}_annualSalary`]}
+    style={{
+      borderRadius: "8px",
+      padding: "10px 12px",
+      fontSize: "12px",
+      color: "#495057",
+    }}
+  >
+    <option value="">-- Select Annual Salary (LPA) --</option>
+    <option value="1">1 LPA</option>
+    <option value="2">2 LPA</option>
+    <option value="3">3 LPA</option>
+    <option value="4">4 LPA</option>
+    <option value="5">5 LPA</option>
+    <option value="6">6 LPA</option>
+    <option value="7">7 LPA</option>
+    <option value="8">8 LPA</option>
+    <option value="9">9 LPA</option>
+    <option value="10">10 LPA</option>
+    <option value="10+">10+ LPA</option>
+    <option value="15">15 LPA</option>
+    <option value="20">20 LPA</option>
+    <option value="25">25 LPA</option>
+    <option value="30">30 LPA</option>
+  </Form.Select>
+  <Form.Control.Feedback type="invalid">
+    {errors[`exp_${index}_annualSalary`]}
+  </Form.Control.Feedback>
 </Form.Group>
+
 
                   </Col>
                   <Col md={6}>
