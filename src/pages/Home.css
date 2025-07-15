@@ -28,10 +28,10 @@
 /* Fixed sidebars */
 .col-lg-3:first-child,
 .col-lg-3:last-child {
-  position: sticky;
-  top: 60px;
-  height: calc(100vh - 60px);
-  overflow-y: auto;
+  position: static;
+  top: unset;
+  height: auto;
+  overflow: visible;
   background-color: #F3F3F3;
 }
 
@@ -198,4 +198,816 @@
 }
 .col-lg-3::-webkit-scrollbar {
   display: none;                  /* Chrome, Safari, Opera */
+}
+
+/* LinkedIn-like layout overhaul */
+.linkedin-home-wrapper {
+  background: #f3f6f8;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+.linkedin-container {
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 24px 10px;
+  gap: 20px;
+}
+
+/* --- Sidebar columns: unified page scroll, no independent scrollbars --- */
+.linkedin-left-col,
+.linkedin-right-col {
+  min-width: 280px;
+  max-width: 320px;
+  /* Remove height, overflow-y, and position */
+}
+
+.linkedin-main-feed {
+  flex: 1 1 550px;
+  max-width: 600px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.linkedin-right-col::-webkit-scrollbar { display: none; }
+
+/* Card styles */
+.profile-card, .suggestions-card, .ad-card, .sharebox-card, .post-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.08);
+  margin-bottom: 16px;
+  padding: 16px;
+}
+.profile-bg {
+  height: 56px;
+  background: linear-gradient(90deg, #70b5f9 0, #7ee7fa 100%);
+  border-radius: 8px 8px 0 0;
+}
+.profile-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #e1e9ee;
+  border: 3px solid #fff;
+  margin: -36px auto 8px auto;
+}
+.profile-info {
+  text-align: center;
+  margin-bottom: 8px;
+}
+.profile-name { font-weight: 600; font-size: 1.1rem; }
+.profile-title { color: #666; font-size: 0.95rem; }
+.profile-stats { font-size: 0.9rem; color: #666; border-top: 1px solid #eee; padding-top: 8px; }
+.profile-stats div { display: flex; justify-content: space-between; margin-bottom: 4px; }
+.sidebar-nav { display: flex; flex-direction: column; gap: 8px; margin-top: 16px; }
+.sidebar-nav a { color: #0a66c2; text-decoration: none; font-size: 0.98rem; }
+
+.suggestions-card { margin-bottom: 16px; }
+.suggestions-title { font-weight: 600; margin-bottom: 8px; }
+.suggestions-card ul { list-style: none; padding: 0; margin: 0; }
+.suggestions-card li { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.suggestions-card button { background: #e7f3ff; color: #0a66c2; border: none; border-radius: 16px; padding: 2px 12px; font-size: 0.95rem; cursor: pointer; }
+.ad-card { height: 120px; display: flex; align-items: center; justify-content: center; color: #888; font-size: 1rem; }
+
+.sharebox-card { display: flex; flex-direction: column; gap: 8px; }
+.sharebox-input { border: 1px solid #e1e9ee; border-radius: 24px; padding: 10px 16px; font-size: 1rem; margin-bottom: 8px; }
+.sharebox-actions { display: flex; gap: 8px; }
+.sharebox-actions button { flex: 1; background: #f3f6f8; border: none; border-radius: 8px; padding: 8px 0; color: #666; font-weight: 500; cursor: pointer; }
+.sharebox-actions button:hover { background: #e7f3ff; color: #0a66c2; }
+
+.post-card { margin-bottom: 16px; }
+.post-header { display: flex; gap: 12px; align-items: center; margin-bottom: 8px; }
+.post-avatar { width: 48px; height: 48px; border-radius: 50%; background: #e1e9ee; }
+.post-author { font-weight: 600; }
+.post-title { color: #666; font-size: 0.95rem; }
+.post-time { color: #999; font-size: 0.9rem; }
+.post-content { margin-bottom: 8px; }
+/* .post-actions { display: flex; gap: 8px; border-top: 1px solid #eee; padding-top: 8px; } */
+/* .post-actions button { flex: 1; background: none; border: none; color: #666; font-weight: 500; cursor: pointer; border-radius: 8px; padding: 6px 0; } */
+/* .post-actions button:hover { background: #f3f6f8; color: #0a66c2; } */
+
+/* Loading and error styles (reuse existing) */
+.loading-spinner, .error-card { margin: 32px auto; max-width: 400px; }
+
+/* Responsive breakpoints */
+@media (max-width: 1200px) {
+  .linkedin-container { max-width: 100vw; gap: 12px; }
+  .linkedin-left-col, .linkedin-right-col { min-width: 220px; max-width: 220px; }
+  .linkedin-main-feed { max-width: 100vw; }
+}
+@media (max-width: 992px) {
+  .linkedin-container { flex-direction: column; gap: 0; }
+  .linkedin-left-col, .linkedin-right-col { position: static; height: auto; min-width: 0; max-width: 100vw; overflow: visible; }
+  .linkedin-main-feed { max-width: 100vw; }
+}
+@media (max-width: 768px) {
+  .linkedin-container { padding-top: 8px; }
+  .linkedin-left-col, .linkedin-right-col { display: none; }
+  .linkedin-main-feed { max-width: 100vw; }
+}
+
+/* --- ProfileCard (Left Sidebar) Styles --- */
+.profile-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+}
+.profile-banner {
+  width: 100%;
+  height: 70px;
+  background: linear-gradient(90deg, #70b5f9 0, #7ee7fa 100%);
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.profile-banner-img {
+  width: 100%;
+  height: 70px;
+  object-fit: cover;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+.profile-avatar-wrapper {
+  position: relative;
+  margin-top: -36px;
+  margin-bottom: 8px;
+  z-index: 2;
+}
+.profile-avatar-img {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  object-fit: cover;
+  background: #e1e9ee;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.profile-info-section {
+  text-align: center;
+  margin-bottom: 8px;
+  margin-top: 4px;
+}
+.profile-name {
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: #222;
+}
+.profile-title {
+  color: #666;
+  font-size: 0.98rem;
+  margin-bottom: 2px;
+}
+.profile-company, .profile-location {
+  color: #888;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+.profile-main-btn {
+  background: #00c8ff;
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 8px 24px;
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 10px 0 6px 0;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 0 2px 8px rgba(0,200,255,0.08);
+}
+.profile-main-btn:hover {
+  background: #009fd6;
+}
+.profile-analytics-link {
+  color: #0a66c2;
+  font-size: 0.97rem;
+  text-decoration: none;
+  margin-bottom: 8px;
+  font-weight: 500;
+  display: block;
+  text-align: center;
+  cursor: pointer;
+}
+.profile-analytics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 12px;
+  width: 90%;
+  margin: 8px auto 0 auto;
+  background: #f3f6f8;
+  border-radius: 10px;
+  padding: 10px 0 2px 0;
+  font-size: 0.97rem;
+}
+.profile-analytics-label {
+  color: #888;
+  font-size: 0.93rem;
+  text-align: left;
+}
+.profile-analytics-value {
+  color: #222;
+  font-weight: 600;
+  font-size: 1.05rem;
+  text-align: left;
+}
+.profile-view-btn {
+  background: #4257b2;
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 8px 24px;
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 14px 0 0 0;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.profile-view-btn:hover {
+  background: #2d3e7b;
+}
+.profile-saved-items {
+  width: 100%;
+  border-top: 1px solid #eee;
+  margin-top: 16px;
+  padding: 12px 0 0 16px;
+  color: #222;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+/* --- Exact ProfileCard Styles (matches screenshot) --- */
+.profile-card-exact {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 16px;
+  padding: 0 0 10px 0;
+  width: 100%;
+}
+.profile-banner-exact {
+  width: 100%;
+  height: 90px;
+  background: #1a2236;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.profile-banner-img-exact {
+  width: 100%;
+  height: 90px;
+  object-fit: cover;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+.profile-avatar-wrapper-exact {
+  position: relative;
+  margin-top: -48px;
+  /* margin-bottom: 8px; */
+  z-index: 2;
+}
+.profile-avatar-img-exact {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  object-fit: cover;
+  background: #e1e9ee;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+}
+.profile-info-section-exact {
+  text-align: center;
+  /* margin-bottom: 8px; */
+  /* margin-top: 4px; */
+}
+.profile-name-exact {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #222;
+  margin-top: 8px;
+}
+.profile-title-exact {
+  color: #555;
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+.profile-company-exact, .profile-location-exact {
+  color: #888;
+  font-size: 0.97rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  margin-bottom: 2px;
+}
+.profile-main-btn-exact {
+  background: #00f0ff;
+  color: #222;
+  border: none;
+  border-radius: 24px;
+  padding: 10px 32px;
+  font-weight: 700;
+  font-size: 1.08rem;
+  margin: 14px 0 10px 0;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 0 2px 8px rgba(0,200,255,0.10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile-main-btn-exact:hover {
+  background: #00c8e0;
+}
+.profile-divider-exact {
+  width: 100%;
+  border-bottom: 1px solid #e6e6e6;
+  margin: 14px 0 0 0;
+}
+.profile-analytics-link-exact {
+  color: #4257b2;
+  font-size: 1.01rem;
+  text-decoration: underline;
+  margin: 8px 0 8px 0;
+  font-weight: 600;
+  display: block;
+  text-align: center;
+  cursor: pointer;
+}
+.profile-analytics-exact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 0;
+  width: 90%;
+  margin: 8px auto 0 auto;
+  background: #fff;
+  border-radius: 0;
+  padding: 0px 0 2px 0;
+  font-size: 1.01rem;
+}
+.profile-analytics-label-exact {
+  color: #888;
+  font-size: 0.97rem;
+  text-align: center;
+  font-weight: 500;
+}
+.profile-analytics-value-exact {
+  color: #222;
+  font-weight: 700;
+  font-size: 1.18rem;
+  text-align: center;
+  margin-top: 2px;
+}
+.profile-view-btn-exact {
+  background: #4257b2;
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 12px 0;
+  font-weight: 700;
+  font-size: 1.08rem;
+  margin: 10px 0 0 0;
+  width: 85%;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 0 2px 8px rgba(66,87,178,0.10);
+  display: block;
+}
+.profile-view-btn-exact:hover {
+  background: #2d3e7b;
+}
+.profile-saved-items-exact {
+  width: 100%;
+  border-top: 1px solid #eee;
+  margin-top: 18px;
+  padding: 16px 18px 0 18px;
+  color: #222;
+  font-size: 1.08rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  background: #fff;
+}
+
+/* --- Saved Items Card (matches screenshot) --- */
+.saved-items-card-exact {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 22px 18px 22px;
+  margin-top: 18px;
+  margin-bottom: 16px;
+  width: 100%;
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: #111;
+  cursor: pointer;
+}
+.saved-items-icon-exact {
+  font-size: 1.35em;
+  color: #111;
+  flex-shrink: 0;
+}
+.saved-items-text-exact {
+  font-weight: 600;
+  color: #111;
+  flex: 1;
+}
+.saved-items-arrow-exact {
+  font-size: 1.15em;
+  color: #111;
+  flex-shrink: 0;
+}
+
+/* --- Skill Matches Card (matches screenshot) --- */
+.skill-matches-card-exact {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-bottom: 18px;
+  padding: 0 0 0 0;
+  width: 100%;
+}
+.skill-matches-title-exact {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #222;
+  padding: 20px 22px 10px 22px;
+}
+.skill-matches-divider-exact {
+  width: 100%;
+  border-bottom: 1px solid #e6e6e6;
+  margin-bottom: 0;
+}
+.skill-matches-list-exact {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0 0 0 0;
+}
+.skill-matches-item-exact {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 22px 0 22px;
+}
+.skill-matches-avatar-exact {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #e1e9ee;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.skill-matches-info-exact {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.skill-matches-name-exact {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #222;
+  margin-bottom: 2px;
+}
+.skill-matches-subtitle-exact {
+  color: #666;
+  font-size: 0.97rem;
+  margin-bottom: 8px;
+}
+.skill-matches-connect-btn-exact {
+  background: #fff;
+  color: #2563eb;
+  border: 2px solid #2563eb;
+  border-radius: 24px;
+  padding: 6px 22px;
+  font-weight: 600;
+  font-size: 1.01rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.skill-matches-connect-btn-exact:hover {
+  background: #2563eb;
+  color: #fff;
+}
+.skill-matches-bottom-divider-exact {
+  width: 100%;
+  border-bottom: 1px solid #e6e6e6;
+  margin: 8px 0 0 0;
+}
+.skill-matches-discover-btn-exact {
+  background: none;
+  color: #222;
+  border: none;
+  border-radius: 0 0 16px 16px;
+  font-weight: 600;
+  font-size: 1.08rem;
+  padding: 18px 0 18px 0;
+  width: 100%;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.skill-matches-discover-btn-exact:hover {
+  background: #f3f6f8;
+}
+
+.sidebar-sticky {
+  position: sticky;
+  top: 60px;
+  align-self: flex-start;
+  /* Removed max-height and overflow-y for unified page scroll */
+}
+
+/* --- Sticky top section in right sidebar (LinkedIn style) --- */
+.sidebar-sticky-top {
+  position: sticky;
+  top: 100px;
+  z-index: 10;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  margin-bottom: 18px;
+}
+
+/* --- Sticky last section in right sidebar (LinkedIn style) --- */
+.sidebar-sticky-bottom {
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  background: #fff; /* Match your card background */
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  margin-bottom: 18px;
+}
+
+/* --- Request / Invitation Card (matches screenshot) --- */
+.request-invitation-card-exact {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  margin-bottom: 18px;
+  padding: 0 0 0 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.request-invitation-title-exact {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #222;
+  padding: 20px 22px 10px 22px;
+}
+.request-invitation-count-exact {
+  color: #e53935;
+  font-weight: 700;
+}
+.request-invitation-divider-exact {
+  width: 100%;
+  border-bottom: 1px solid #e6e6e6;
+  margin-bottom: 0;
+}
+.request-invitation-list-exact {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0 0 0 0;
+}
+.request-invitation-item-exact {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 22px 0 22px;
+}
+.request-invitation-avatar-exact {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #e1e9ee;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.request-invitation-info-exact {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.request-invitation-name-exact {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #222;
+  margin-bottom: 2px;
+}
+.request-invitation-title2-exact {
+  color: #666;
+  font-size: 0.97rem;
+  margin-bottom: 8px;
+}
+.request-invitation-actions-exact {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.request-invitation-accept-exact {
+  background: #fff;
+  color: #2563eb;
+  border: 2px solid #2563eb;
+  border-radius: 24px;
+  padding: 6px 22px;
+  font-weight: 600;
+  font-size: 1.01rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.request-invitation-accept-exact:hover {
+  background: #2563eb;
+  color: #fff;
+}
+.request-invitation-ignore-exact {
+  background: #fff;
+  color: #666;
+  border: 2px solid #bbb;
+  border-radius: 24px;
+  padding: 6px 22px;
+  font-weight: 600;
+  font-size: 1.01rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.request-invitation-ignore-exact:hover {
+  background: #eee;
+  color: #222;
+}
+.request-invitation-footer-exact {
+  border-top: 1px solid #e6e6e6;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.08rem;
+  color: #222;
+  padding: 18px 0 18px 0;
+  background: #fff;
+  border-radius: 0 0 16px 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.request-invitation-footer-exact:hover {
+  background: #f3f6f8;
+}
+
+/* --- Advertisement Card --- */
+.advertisement-card-exact {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  margin-bottom: 18px;
+  width: 100%;
+  min-height: 230px;
+  max-height: 270px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  overflow: hidden;
+}
+.advertisement-content-exact {
+  padding: 18px 22px 18px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: space-between;
+}
+.advertisement-title-exact {
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: #2563eb;
+  margin-bottom: 8px;
+  text-align: center;
+}
+.advertisement-image-exact {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.advertisement-text-exact {
+  color: #444;
+  font-size: 0.98rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.advertisement-btn-exact {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 8px 28px;
+  font-weight: 600;
+  font-size: 1.01rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 4px;
+}
+.advertisement-btn-exact:hover {
+  background: #1741a6;
+}
+
+/* --- Responsive layout for LinkedIn-style --- */
+
+/* Above 991px: three columns (left, main, right) */
+@media (min-width: 992px) {
+  .linkedin-container {
+    flex-direction: row;
+    gap: 20px;
+  }
+  .linkedin-left-col {
+    display: block;
+    min-width: 280px;
+    max-width: 320px;
+  }
+  .linkedin-main-feed {
+    flex: 1 1 550px;
+    max-width: 600px;
+    min-width: 0;
+  }
+  .linkedin-right-col {
+    display: block;
+    min-width: 280px;
+    max-width: 320px;
+  }
+}
+
+/* 769px to 991px: left sidebar + main feed side by side, hide right sidebar */
+@media (min-width: 769px) and (max-width: 991px) {
+  .linkedin-container {
+    flex-direction: row;
+    gap: 12px;
+  }
+  .linkedin-left-col {
+    display: block;
+    min-width: 220px;
+    max-width: 220px;
+  }
+  .linkedin-main-feed {
+    max-width: 100vw;
+    width: 100%;
+    min-width: 0;
+  }
+  .linkedin-right-col {
+    display: none !important;
+  }
+}
+
+/* Below 769px: only main feed, hide both sidebars */
+@media (max-width: 768px) {
+  .linkedin-container {
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+  }
+  .linkedin-left-col, .linkedin-right-col {
+    display: none !important;
+  }
+  .linkedin-main-feed {
+    max-width: 100vw;
+    width: 100vw;
+    padding: 0 2px;
+  }
 }
