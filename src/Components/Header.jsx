@@ -639,7 +639,7 @@ const sectionStyle = {
                 fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
               }}
             >
-              Jobs
+              My Jobs
             </a>
             <a
               href="/network"
@@ -652,7 +652,7 @@ const sectionStyle = {
                 fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
               }}
             >
-              My Network
+              My Connects
             </a>
             <a
               href="/competitions"
@@ -665,7 +665,7 @@ const sectionStyle = {
                 fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
               }}
             >
-              Competitions
+              My Competitions
             </a>
           </Col>
 
