@@ -261,15 +261,37 @@ import { Card, Col, Row, Form, Button } from "react-bootstrap";
 import { useFormContext } from "../../Context/FormContext";
 import useFormSubmit from "../../Components/hooks/useFormSubmit";
 import { validateBasicInfo } from "../../Components/utils/validateForm";
+import { useState } from "react";
 
 function BasicInfo() {
   const { formData, setFormData, errors, setErrors, nextStep, setUserId } = useFormContext();
   const { submit, isSubmitting, error } = useFormSubmit();
 
+  // const handleInputChange = (field, value) => {
+  //   setFormData((prev) => ({ ...prev, [field]: value }));
+  //   setErrors((prev) => ({ ...prev, [field]: "" }));
+  // };
+
   const handleInputChange = (field, value) => {
-    setFormData((prev) => ({ ...prev, [field]: value }));
-    setErrors((prev) => ({ ...prev, [field]: "" }));
-  };
+  setFormData((prev) => ({ ...prev, [field]: value }));
+  setErrors((prev) => ({ ...prev, [field]: "" }));
+
+  if (["city", "currentCity", "preferredJobLocations"].includes(field)) {
+    setActiveField(field);
+
+    if (!value) {
+      setSuggestions([]);
+      return;
+    }
+
+    const filtered = citySuggestionsMaster.filter((city) =>
+      city.toLowerCase().startsWith(value.toLowerCase())
+    );
+
+    setSuggestions(filtered);
+  }
+};
+
 
   const handleSubmit = async () => {
     const newErrors = validateBasicInfo(formData);
@@ -320,6 +342,56 @@ function BasicInfo() {
       e.preventDefault();
     }
   };
+
+const citySuggestionsMaster = [
+  "Hyderabad", "Bengaluru", "Mumbai", "Chennai", "Delhi", "Kolkata", "Pune", "Ahmedabad", "Lucknow", "Jaipur",
+  "Visakhapatnam", "Surat", "Nagpur", "Indore", "Bhopal", "Patna", "Vadodara", "Ghaziabad", "Ludhiana", "Agra",
+  "Nashik", "Faridabad", "Meerut", "Rajkot", "Varanasi", "Amritsar", "Prayagraj", "Ranchi", "Coimbatore", "Guwahati",
+  "Vijayawada", "Jodhpur", "Madurai", "Raipur", "Kota", "Chandigarh", "Mysore", "Bareilly", "Tiruchirappalli",
+  "Jalandhar", "Gwalior", "Thiruvananthapuram", "Noida", "Dehradun", "Aurangabad", "Jamshedpur", "Udaipur",
+  "Thane", "Howrah", "Shimla", "Panaji", "Puducherry", "Shillong", "Aizawl", "Itanagar", "Imphal", "Kohima",
+  "Gangtok", "Agartala", "Dhanbad", "Bilaspur", "Solapur", "Nellore", "Guntur", "Tirupati", "Karimnagar", "Warangal",
+  "Nizamabad", "Vizianagaram", "Eluru", "Anantapur", "Kakinada", "Srikakulam", "Ongole", "Kadapa", "Rajahmundry",
+  "Sambalpur", "Cuttack", "Rourkela", "Brahmapur", "Balasore", "Bhadrak", "Baripada", "Puri", "Paradeep",
+  "Kollam", "Kozhikode", "Thrissur", "Alappuzha", "Kannur", "Palakkad", "Kottayam", "Malappuram", "Kasaragod",
+  "Ahmednagar", "Nanded", "Satara", "Latur", "Sangli", "Beed", "Jalgaon", "Kolhapur", "Dhule", "Chandrapur",
+  "Bhiwandi", "Parbhani", "Ratnagiri", "Panvel", "Siliguri", "Durgapur", "Asansol", "Haldia", "Darjeeling",
+  "Tinsukia", "Silchar", "Nagaon", "Tezpur", "Diphu", "Dibrugarh", "Barpeta", "Karimganj", "Bongaigaon",
+  "Amarkantak", "Chhindwara", "Satna", "Sagar", "Ujjain", "Ratlam", "Rewa", "Bhind", "Shivpuri", "Guna",
+  "Morena", "Betul", "Katni", "Damoh", "Sehore", "Hoshangabad", "Dewas", "Vidisha", "Itarsi", "Mandsaur",
+  "Balaghat", "Jabalpur", "Pali", "Bikaner", "Ajmer", "Alwar", "Bhilwara", "Hanumangarh", "Sikar", "Banswara",
+  "Churu", "Bharatpur", "Barmer", "Sri Ganganagar", "Dausa", "Tonk", "Sawai Madhopur", "Nagaur"
+];
+
+
+const [suggestions, setSuggestions] = useState([]);
+const [activeField, setActiveField] = useState("");
+
+const styles = {
+  suggestionBox: {
+    border: "1px solid #ccc",
+    maxHeight: "150px",
+    overflowY: "auto",
+    background: "#fff",
+    marginTop: "0px",
+    paddingLeft: "0",
+    listStyle: "none",
+    position: "absolute",
+    zIndex: 1000,
+    width: "100%",
+    borderRadius: "5px",
+  },
+  suggestionItem: {
+    padding: "8px 12px",
+    cursor: "pointer",
+    fontSize: "12px",
+    color: "#333",
+    textAlign: "left",  
+  },
+};
+
+
+
 
   return (
     <Card className="form-card">
@@ -385,7 +457,7 @@ function BasicInfo() {
           </Col>
           <Col xs={12} md={6}>
             <Form.Group className="mb-3">
-              <Form.Label>Alternate mobile number</Form.Label>
+              <Form.Label style={{ fontWeight: 500, fontSize: "14px", color: "#212529" }}>Alternate mobile number</Form.Label>
               <Form.Control
                 type="tel"
                 placeholder="Enter alternate no."
@@ -428,7 +500,7 @@ function BasicInfo() {
         </Row>
         <Row>
           <Col xs={12} md={6}>
-            <Form.Group className="mb-3">
+            {/* <Form.Group className="mb-3">
               <Form.Label>City</Form.Label>
               <Form.Control
                 type="text"
@@ -436,10 +508,39 @@ function BasicInfo() {
                 value={formData.city}
                 onChange={(e) => handleInputChange("city", e.target.value)}
               />
-            </Form.Group>
+            </Form.Group> */}
+
+            <Form.Group className="mb-3" style={{ position: "relative" }}>
+  <Form.Label style={{ fontWeight: 500, fontSize: "14px", color: "#212529" }}>City</Form.Label>
+  <Form.Control
+    type="text"
+    placeholder="Enter your city"
+    value={formData.city}
+    onChange={(e) => handleInputChange("city", e.target.value)}
+  />
+  {activeField === "city" && suggestions.length > 0 && (
+    <ul style={styles.suggestionBox}>
+      {suggestions.map((sug, idx) => (
+        <li
+          key={idx}
+          style={styles.suggestionItem}
+          onClick={() => {
+            handleInputChange("city", sug);
+            setSuggestions([]);
+          }}
+        >
+          {sug}
+        </li>
+      ))}
+    </ul>
+  )}
+</Form.Group>
+
+
+
           </Col>
           <Col xs={12} md={6}>
-            <Form.Group className="mb-3">
+            {/* <Form.Group className="mb-3">
               <Form.Label className="required">Current city<span className="required-asterisk">*</span></Form.Label>
               <Form.Control
                 type="text"
@@ -449,12 +550,43 @@ function BasicInfo() {
                 isInvalid={!!errors.currentCity}
               />
               <Form.Control.Feedback type="invalid">{errors.currentCity}</Form.Control.Feedback>
-            </Form.Group>
+            </Form.Group> */}
+
+            <Form.Group className="mb-3" style={{ position: "relative" }}>
+  <Form.Label className="required">Current City<span className="required-asterisk">*</span></Form.Label>
+  <Form.Control
+    type="text"
+    placeholder="Enter current city"
+    value={formData.currentCity}
+    onChange={(e) => handleInputChange("currentCity", e.target.value)}
+    isInvalid={!!errors.currentCity}
+  />
+  {activeField === "currentCity" && suggestions.length > 0 && (
+    <ul style={styles.suggestionBox}>
+      {suggestions.map((sug, idx) => (
+        <li
+          key={idx}
+          style={styles.suggestionItem}
+          onClick={() => {
+            handleInputChange("currentCity", sug);
+            setSuggestions([]);
+          }}
+        >
+          {sug}
+        </li>
+      ))}
+    </ul>
+  )}
+  <Form.Control.Feedback type="invalid">{errors.currentCity}</Form.Control.Feedback>
+</Form.Group>
+
+
+
           </Col>
         </Row>
         <Row>
           <Col xs={12}>
-            <Form.Group className="mb-3">
+            {/* <Form.Group className="mb-3">
               <Form.Label className="required">Preferred Job Location<span className="required-asterisk">*</span></Form.Label>
               <Form.Control
                 type="text"
@@ -464,7 +596,37 @@ function BasicInfo() {
                 isInvalid={!!errors.preferredJobLocations}
               />
               <Form.Control.Feedback type="invalid">{errors.preferredJobLocations}</Form.Control.Feedback>
-            </Form.Group>
+            </Form.Group> */}
+
+            <Form.Group className="mb-3" style={{ position: "relative" }}>
+  <Form.Label className="required" style={{ fontWeight: 500, fontSize: "14px", color: "#212529" }}>Preferred Job Location<span className="required-asterisk">*</span></Form.Label>
+  <Form.Control
+    type="text"
+    placeholder="Preferred Job Location"
+    value={formData.preferredJobLocations}
+    onChange={(e) => handleInputChange("preferredJobLocations", e.target.value)}
+    isInvalid={!!errors.preferredJobLocations}
+  />
+  {activeField === "preferredJobLocations" && suggestions.length > 0 && (
+    <ul style={styles.suggestionBox}>
+      {suggestions.map((sug, idx) => (
+        <li
+          key={idx}
+          style={styles.suggestionItem}
+          onClick={() => {
+            handleInputChange("preferredJobLocations", sug);
+            setSuggestions([]);
+          }}
+        >
+          {sug}
+        </li>
+      ))}
+    </ul>
+  )}
+  <Form.Control.Feedback type="invalid">{errors.preferredJobLocations}</Form.Control.Feedback>
+</Form.Group>
+
+
           </Col>
         </Row>
         <Row>

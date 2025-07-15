@@ -141,6 +141,8 @@ export const validateExperience = (formData, workStatus, userId) => {
       if (!exp.totalExperience) errors[`exp_${index}_totalExperience`] = "Total experience is required.";
       if (!exp.annualSalary) errors[`exp_${index}_annualSalary`] = "Annual salary is required.";
       if (!exp.responsibilities) errors[`exp_${index}_responsibilities`] = "Responsibilities are required.";
+      if (!exp.typeOfEmployment)
+        errors[`exp_${index}_typeOfEmployment`] = "Type of employment is required.";
     });
   }
   return errors;
