@@ -521,7 +521,7 @@ const submitExperiences = async () => {
                 <Row>
                   <Col md={6}>
                     <Form.Group className="mb-3">
-<Form.Label className="required">Total Experience<span className="required-asterisk">*</span> (Years)</Form.Label>
+<Form.Label className="required">Total Experience (Years) <span className="required-asterisk"> *</span> </Form.Label>
 <Form.Select
   value={exp.totalExperience}
   onChange={(e) =>
@@ -551,7 +551,7 @@ const submitExperiences = async () => {
                   </Col>
                   <Col md={6}>
                     <Form.Group className="mb-3">
-<Form.Label className="required">Designation<span className="required-asterisk">*</span></Form.Label>
+<Form.Label className="required">Designation<span className="required-asterisk"> *</span></Form.Label>
 <Form.Select
   value={exp.designation}
   onChange={(e) =>
@@ -590,7 +590,7 @@ const submitExperiences = async () => {
                 <Row>
                   <Col md={6}>
                     <Form.Group className="mb-3">
-                      <Form.Label className="required">Company Name<span className="required-asterisk">*</span></Form.Label>
+                      <Form.Label className="required">Company Name<span className="required-asterisk"> *</span></Form.Label>
                       <Form.Control
                         type="text"
                         placeholder="e.g. Tech Corp"
@@ -612,7 +612,7 @@ const submitExperiences = async () => {
                   </Col>
                   <Col md={6}>
                     <Form.Group className="mb-3">
-<Form.Label className="required">Type of Employment<span className="required-asterisk">*</span></Form.Label>
+<Form.Label className="required">Type of Employment<span className="required-asterisk"> *</span></Form.Label>
 <Form.Select
   value={exp.typeOfEmployment}
   onChange={(e) =>
@@ -677,7 +677,7 @@ const submitExperiences = async () => {
 
 <Form.Group className="mb-3">
   <Form.Label className="required">
-    Annual Salary<span className="required-asterisk">*</span> (LPA)
+    Annual Salary (LPA)<span className="required-asterisk"> *</span> 
   </Form.Label>
   <Form.Select
     value={exp.annualSalary}
