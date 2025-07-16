@@ -163,3 +163,6 @@
   display: none; /* Chrome, Safari, Edge */
 }
 
+ul::-webkit-scrollbar {
+  display: none;
+}

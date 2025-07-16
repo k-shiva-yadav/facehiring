@@ -931,6 +931,8 @@ function Education() {
   const [submitError, setSubmitError] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [suggestions, setSuggestions] = useState([]);
+const [activeField, setActiveField] = useState("");
 
   // Initialize formData.education if undefined
   useEffect(() => {
@@ -1090,6 +1092,47 @@ function Education() {
   if (!userId) return null;
 
   const edu = formData.education || {};
+const allQualifications = [
+  "Bachelor's Degree",
+  "Master's Degree",
+  "Diploma",
+  "PhD",
+  "Intermediate",
+  "SSC",
+  "Other"
+];
+
+const allCourses = [
+  "Computer Science",
+  "Electronics",
+  "Mechanical",
+  "Civil",
+  "Information Technology",
+  "Business Administration",
+  "Commerce",
+  "Arts",
+  "Other"
+];
+
+const allSpecializations = [
+  "Software Engineering",
+  "Data Science",
+  "Cybersecurity",
+  "AI & ML",
+  "VLSI Design",
+  "Thermodynamics",
+  "Accounting",
+  "Psychology",
+  "Other"
+];
+
+
+const getSuggestions = (list, input) => {
+  if (!input) return [];
+  const inputLower = input.toLowerCase();
+  return list.filter((item) => item.toLowerCase().includes(inputLower));
+};
+
 
   return (
     <Card className="form-card" style={{ borderRadius: "15px" }}>
@@ -1102,7 +1145,7 @@ function Education() {
 
             <Row>
               <Col md={6}>
-                <Form.Group className="mb-3">
+                {/* <Form.Group className="mb-3">
                   <Form.Label className="required">Qualification<span className="required-asterisk">*</span></Form.Label>
                   <Form.Control
                     type="text"
@@ -1117,10 +1160,52 @@ function Education() {
                   <Form.Control.Feedback type="invalid">
                     {errors.edu_Qualification}
                   </Form.Control.Feedback>
-                </Form.Group>
+                </Form.Group> */}
+               <Form.Group className="mb-3" style={{ position: "relative" }}>
+  <Form.Label className="required">Qualification<span className="required-asterisk">*</span></Form.Label>
+  <Form.Control
+    type="text"
+    placeholder="e.g. Bachelor's Degree"
+    value={edu.Qualification || ""}
+    onChange={(e) => {
+      const val = e.target.value;
+      handleChange("Qualification", val);
+      setSuggestions(getSuggestions(allQualifications, val));
+      setActiveField("Qualification");
+    }}
+    onBlur={() => setTimeout(() => setSuggestions([]), 150)}
+    onFocus={() =>
+      setSuggestions(getSuggestions(allQualifications, edu.Qualification))
+    }
+    isInvalid={!!errors.edu_Qualification}
+    style={{ borderRadius: "8px" }}
+  />
+  {activeField === "Qualification" && suggestions.length > 0 && (
+    <ul style={suggestionStyles.suggestionBox}>
+      {suggestions.map((sug, idx) => (
+        <li
+          key={idx}
+          style={suggestionStyles.suggestionItem}
+          onClick={() => {
+            handleChange("Qualification", sug);
+            setSuggestions([]);
+          }}
+        >
+          {sug}
+        </li>
+      ))}
+    </ul>
+  )}
+  <Form.Control.Feedback type="invalid">
+    {errors.edu_Qualification}
+  </Form.Control.Feedback>
+</Form.Group>
+
+
+
               </Col>
               <Col md={6}>
-                <Form.Group className="mb-3">
+                {/* <Form.Group className="mb-3">
                   <Form.Label>Course</Form.Label>
                   <Form.Control
                     type="text"
@@ -1129,13 +1214,47 @@ function Education() {
                     onChange={(e) => handleChange("Course", e.target.value)}
                     style={{ borderRadius: "8px" }}
                   />
-                </Form.Group>
+                </Form.Group> */}
+                <Form.Group className="mb-3" style={{ position: "relative" }}>
+  <Form.Label>Course</Form.Label>
+  <Form.Control
+    type="text"
+    placeholder="e.g. Computer Science"
+    value={edu.Course || ""}
+    onChange={(e) => {
+      const val = e.target.value;
+      handleChange("Course", val);
+      setSuggestions(getSuggestions(allCourses, val));
+      setActiveField("Course");
+    }}
+    onBlur={() => setTimeout(() => setSuggestions([]), 150)}
+    onFocus={() => setSuggestions(getSuggestions(allCourses, edu.Course))}
+    style={{ borderRadius: "8px" }}
+  />
+  {activeField === "Course" && suggestions.length > 0 && (
+    <ul style={suggestionStyles.suggestionBox}>
+      {suggestions.map((sug, idx) => (
+        <li
+          key={idx}
+          style={suggestionStyles.suggestionItem}
+          onClick={() => {
+            handleChange("Course", sug);
+            setSuggestions([]);
+          }}
+        >
+          {sug}
+        </li>
+      ))}
+    </ul>
+  )}
+</Form.Group>
+
               </Col>
             </Row>
 
             <Row>
               <Col md={6}>
-                <Form.Group className="mb-3">
+                {/* <Form.Group className="mb-3">
                   <Form.Label>Specialization</Form.Label>
                   <Form.Control
                     type="text"
@@ -1146,7 +1265,43 @@ function Education() {
                     }
                     style={{ borderRadius: "8px" }}
                   />
-                </Form.Group>
+                </Form.Group> */}
+                <Form.Group className="mb-3" style={{ position: "relative" }}>
+  <Form.Label>Specialization</Form.Label>
+  <Form.Control
+    type="text"
+    placeholder="e.g. Software Engineering"
+    value={edu.Specialization || ""}
+    onChange={(e) => {
+      const val = e.target.value;
+      handleChange("Specialization", val);
+      setSuggestions(getSuggestions(allSpecializations, val));
+      setActiveField("Specialization");
+    }}
+    onBlur={() => setTimeout(() => setSuggestions([]), 150)}
+    onFocus={() =>
+      setSuggestions(getSuggestions(allSpecializations, edu.Specialization))
+    }
+    style={{ borderRadius: "8px" }}
+  />
+  {activeField === "Specialization" && suggestions.length > 0 && (
+    <ul style={suggestionStyles.suggestionBox}>
+      {suggestions.map((sug, idx) => (
+        <li
+          key={idx}
+          style={suggestionStyles.suggestionItem}
+          onClick={() => {
+            handleChange("Specialization", sug);
+            setSuggestions([]);
+          }}
+        >
+          {sug}
+        </li>
+      ))}
+    </ul>
+  )}
+</Form.Group>
+
               </Col>
               <Col md={6}>
                 <Form.Group className="mb-3">
@@ -1280,3 +1435,30 @@ function Education() {
 }
 
 export default Education;
+const suggestionStyles = {
+  suggestionBox: {
+    position: "absolute",
+    top: "100%",
+    left: 0,
+    right: 0,
+    backgroundColor: "#fff",
+    border: "1px solid #ccc",
+    borderRadius: "8px",
+    zIndex: 1000,
+    maxHeight: "150px",
+    overflowY: "auto",
+    paddingLeft: "0",
+    marginTop: "2px",
+    listStyle: "none",
+
+    /* Hide scrollbar but keep scroll working */
+    scrollbarWidth: "none", // Firefox
+    msOverflowStyle: "none", // IE/Edge
+  },
+  suggestionItem: {
+    fontSize: "12px",
+    textAlign: "left",
+    padding: "8px 12px",
+    cursor: "pointer",
+  },
+};
