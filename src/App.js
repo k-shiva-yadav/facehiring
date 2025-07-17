@@ -44,10 +44,13 @@ import CandidatesPage from './Jobs/CandidatesPage';
 import JobListings from './Jobs/JobListings';
 import { JobActionsProvider } from './Context/JobActionsContext';
 import PostedJobDetailPage from './Jobs/PostedJobDetailPage';
+import ScrollToTop from './Components/ScrollToTop';
 
 function App() {
+  console.log("App component is rendering!");
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <HeaderProvider>
         <AuthProvider>
           <FormProvider>
@@ -64,6 +67,7 @@ function App() {
                     <Route path="/resetpassword" element={<ResetPassword />} />
                     <Route path="/uipost" element={<UIpost />} />
                     <Route path="/network" element={<MyNetworkPage />} />
+                    <Route path="/profile" element={<ProfilePage />} />
                     <Route path="/profile/:id" element={<ProfilePage />} />
                     <Route path="/postjob" element={<PostJob />} />
                     <Route path="/job-description" element={<JobDescription />} />
@@ -89,6 +93,7 @@ function App() {
                     <Route path="/job/:id/candidates" element={<CandidatesPage />} />
                     <Route path="/joblistings" element={<JobListings />} />
                     <Route path="/posted-job/:id" element={<PostedJobDetailPage />} />
+                    <Route path="/test" element={<h1>HELLO ROUTE</h1>} />
                   </Routes>
                   <Footer />
                   <ToastContainer position="top-right" autoClose={3000} />

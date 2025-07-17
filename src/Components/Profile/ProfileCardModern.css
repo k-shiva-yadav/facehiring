@@ -1,0 +1,152 @@
+.pcm-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(60, 88, 152, 0.08);
+  max-width: 350px;
+  margin: 0px auto;
+  overflow: hidden;
+  font-family: 'Inter', Arial, sans-serif;
+  border: 1px solid #e5e7eb;
+}
+.pcm-banner-container {
+  position: relative;
+  width: 100%;
+  height: 120px;
+  background: #f3f6f8;
+}
+.pcm-banner-img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  display: block;
+}
+.pcm-camera-icon {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(60, 88, 152, 0.10);
+  padding: 4px;
+  cursor: pointer;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pcm-profile-img {
+  position: absolute;
+  left: 50%;
+  bottom: -48px;
+  transform: translateX(-50%);
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(60, 88, 152, 0.10);
+  background: #fff;
+  z-index: 3;
+}
+.pcm-content {
+  padding: 64px 24px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+.pcm-name-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+.pcm-name {
+  color: #3C5898;
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+.pcm-edit-icon {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 2px;
+}
+.pcm-title {
+  color: #222;
+  font-size: 1.05rem;
+  text-align: center;
+  margin-bottom: 2px;
+}
+.pcm-section {
+  margin-top: 8px;
+}
+.pcm-section-header {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #222;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+.pcm-about-text {
+  color: #444;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  margin-bottom: 2px;
+}
+.pcm-skills-list {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.pcm-skill-badge {
+  background: #e0e7ff;
+  color: #3C5898;
+  border-radius: 16px;
+  padding: 6px 16px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  margin-bottom: 4px;
+}
+.pcm-section + .pcm-section {
+  border-top: 1px solid #dbdada;
+  margin-top: 18px;
+  padding-top: 18px;
+}
+.pcm-section-bordered {
+  border-top: 1px solid #dbdada;
+  margin-top: 18px;
+  padding-top: 18px;
+}
+@media (max-width: 768px) {
+  .pcm-card {
+    max-width: 98vw;
+    margin: 12px auto;
+  }
+  .vpc-card {
+    margin-bottom: 20px !important;
+  }
+}
+@media (max-width: 480px) {
+  .pcm-card {
+    max-width: 98vw;
+    margin: 12px auto;
+  }
+  .pcm-content {
+    padding: 64px 8px 16px 8px;
+  }
+  .pcm-banner-container {
+    height: 90px;
+  }
+  .pcm-banner-img {
+    height: 90px;
+  }
+  .pcm-profile-img {
+    width: 72px;
+    height: 72px;
+    bottom: -36px;
+  }
+} 

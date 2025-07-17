@@ -154,9 +154,11 @@ import ShareBox from '../Components/Feed/ShareBox';
 import Post from '../Components/Feed/Post';
 import './Home.css';
 import { FaSpinner, FaMapMarkerAlt, FaBuilding, FaVideo, FaBookmark, FaChevronRight, FaUserPlus } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const ProfileCard = () => {
   const { user } = useAuthContext();
+  const navigate = useNavigate();
   // Placeholder analytics
   const analytics = {
     profileViews: 350,
@@ -204,7 +206,7 @@ const ProfileCard = () => {
         </div>
       </div>
       <div className="profile-divider-exact" />
-      <button className="profile-view-btn-exact">View Profile</button>
+      <button className="profile-view-btn-exact" onClick={() => navigate('/profile')}>View Profile</button>
     </div>
   );
 };

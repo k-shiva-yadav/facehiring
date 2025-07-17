@@ -1,0 +1,96 @@
+.mn-sidebar-card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(60, 88, 152, 0.08);
+  padding: 20px 0 16px 0;
+  margin-bottom: 0;
+  border: 1px solid #ececec;
+  display: flex;
+  flex-direction: column;
+  min-width: 240px;
+  max-width: 320px;
+  width: 100%;
+}
+.mn-sidebar-title {
+  font-weight: 700;
+  font-size: 1.13rem;
+  color: #222;
+  padding: 0 24px 8px 24px;
+}
+.mn-sidebar-divider {
+  border-bottom: 1px solid #ececec;
+  margin: 0 0 8px 0;
+}
+.mn-sidebar-list {
+  list-style: none;
+  padding: 0 0 0 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.mn-sidebar-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 24px;
+  font-size: 1.05rem;
+  color: #222;
+  border-radius: 8px;
+  transition: background 0.15s;
+  cursor: pointer;
+}
+.mn-sidebar-list-item:hover {
+  background: #f3f6f8;
+}
+.mn-sidebar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.mn-sidebar-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  min-height: 28px;
+}
+.mn-sidebar-label {
+  font-weight: 500;
+  color: #222;
+}
+.mn-sidebar-count {
+  font-weight: 700;
+  color: #222;
+  margin-left: 8px;
+  min-width: 32px;
+  text-align: right;
+}
+@media (max-width: 900px) {
+  .mn-sidebar-card {
+    min-width: 0;
+    max-width: 100%;
+    padding: 16px 0 12px 0;
+  }
+  .mn-sidebar-title {
+    padding: 0 14px 8px 14px;
+  }
+  .mn-sidebar-list-item {
+    padding: 10px 14px;
+  }
+}
+@media (max-width: 600px) {
+  .mn-sidebar-card {
+    border-radius: 10px;
+    padding: 10px 0 8px 0;
+  }
+  .mn-sidebar-title {
+    font-size: 1rem;
+    padding: 0 8px 6px 8px;
+  }
+  .mn-sidebar-list-item {
+    font-size: 0.98rem;
+    padding: 8px 8px;
+    gap: 10px;
+  }
+} 
