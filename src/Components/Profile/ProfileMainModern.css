@@ -1,0 +1,175 @@
+.pmm-main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.pmm-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(60, 88, 152, 0.07);
+  padding: 18px 20px 18px 20px;
+  margin-bottom: 0;
+  border: 1px solid #ececec;
+}
+.pmm-section-header {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.13rem;
+  color: #222;
+  gap: 8px;
+  margin-bottom: 12px;
+  justify-content: space-between;
+  border-bottom: 1px solid #dbdada;
+  padding-bottom: 8px;
+}
+.pmm-icons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.pmm-experience-content {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-top: 6px;
+}
+.pmm-company-logo {
+  width: 54px;
+  height: 54px;
+  border-radius: 8px;
+  object-fit: contain;
+  background: #fff;
+  border: 1px solid #e0e7ff;
+}
+.pmm-company-name {
+  font-weight: 600;
+  font-size: 1.08rem;
+  color: #222;
+}
+.pmm-position {
+  color: #444;
+  font-size: 1rem;
+  margin-bottom: 2px;
+}
+.pmm-duration {
+  color: #888;
+  font-size: 0.97rem;
+}
+.pmm-stream-title {
+  color: #444;
+  font-size: 1.01rem;
+  margin-bottom: 8px;
+}
+.pmm-skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.pmm-skill-badge {
+  background: #fff;
+  color: #3C5898;
+  border: 1.5px solid #3C5898;
+  border-radius: 16px;
+  padding: 6px 16px;
+  font-size: 0.97rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  margin-bottom: 4px;
+  transition: background 0.2s, color 0.2s;
+}
+.pmm-skill-plus {
+  background: #e0e7ff;
+  color: #3C5898;
+  border: 1.5px solid #e0e7ff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.pmm-resume-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.pmm-resume-row > div {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.pmm-pdf-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.pmm-resume-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+.pmm-resume-title {
+  font-weight: 600;
+  color: #222;
+  font-size: 1.01rem;
+}
+.pmm-resume-date {
+  color: #888;
+  font-size: 0.97rem;
+}
+.pmm-download-btn {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #22c55e;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.pmm-download-btn:hover {
+  background: #16a34a;
+}
+.pmm-experience-content-left{
+  text-align: left;
+}
+@media (max-width: 600px) {
+  .pmm-main-content {
+    gap: 12px;
+  }
+  .pmm-card {
+    padding: 12px 6px 12px 6px;
+  }
+  .pmm-experience-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .pmm-company-logo {
+    width: 40px;
+    height: 40px;
+  }
+  .pmm-resume-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .pmm-download-btn {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 8px;
+    justify-content: center;
+  }
+} 

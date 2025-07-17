@@ -359,7 +359,19 @@
   justify-content: center;
   min-height: 100vh;
 }
-
+.detail-label{
+  color: #6c757d;
+  font-weight: 600;
+}
+.pmm-stream-title{
+  text-align: left;
+  color: #6c757d;
+  font-weight: 600;
+}
+.detail-value{
+  /* color: #2222; */
+  font-weight: 600;
+}
 @media (max-width: 768px) {
   .profile-banner-img {
     height: 120px;
@@ -421,4 +433,83 @@
 }
 .font-weight{
   font-weight: 600;
+}
+
+@media (max-width: 769px) {
+  .profile-responsive-flex {
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+  .profile-responsive-flex > .linkedin-left-col,
+  .profile-responsive-flex > .linkedin-main-feed {
+    max-width: 100% !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    flex: 1 1 100% !important;
+  }
+  .profile-responsive-flex > .linkedin-left-col {
+    display: block !important;
+  }
+}
+
+.basic-details-modern {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(60, 88, 152, 0.08);
+  padding: 22px 24px 22px 24px;
+  margin-bottom: 0;
+  border: 1px solid #ececec;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.basic-details-header-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.basic-details-title {
+  font-weight: 700;
+  font-size: 1.13rem;
+  color: #222;
+}
+.basic-details-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px 24px;
+}
+.basic-details-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.basic-details-label {
+  color: #888;
+  font-size: 0.97rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+.basic-details-value {
+  color: #222;
+  font-size: 1.07rem;
+  font-weight: 600;
+  word-break: break-all;
+}
+@media (max-width: 900px) {
+  .basic-details-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .basic-details-modern {
+    padding: 14px 8px 14px 8px;
+    gap: 12px;
+  }
+  .basic-details-grid {
+    grid-template-columns: 1fr;
+    gap: 12px 0;
+  }
+  .basic-details-title {
+    font-size: 1.05rem;
+  }
 }

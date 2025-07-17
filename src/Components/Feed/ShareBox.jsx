@@ -332,7 +332,7 @@ const ShareBox = () => {
           placeholder="What do you want to talk about?"
           value={postContent}
           onChange={(e) => setPostContent(e.target.value.slice(0, MAX_CHARS))}
-          rows="3"
+          rows="2"
           maxLength={MAX_CHARS}
         />
         <div className="char-count">{postContent.length}/{MAX_CHARS}</div>
