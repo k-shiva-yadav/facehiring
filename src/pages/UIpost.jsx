@@ -155,11 +155,14 @@ import Post from '../Components/Feed/Post';
 import './Home.css';
 import VideoPitchModal from '../Components/VideoPitchModal';
 import { FaSpinner, FaMapMarkerAlt, FaBuilding, FaVideo, FaBookmark, FaChevronRight, FaUserPlus } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const ProfileCard = () => {
-  const { user, networkData, } = useAuthContext();
-  const [showPitchModal, setShowPitchModal] = useState(false);
+    const [showPitchModal, setShowPitchModal] = useState(false);
+  const { user, networkData } = useAuthContext();
+  const navigate = useNavigate();
+
   // Placeholder analytics
   const [analytics, setAnalytics] = useState({
     postImpressions: 1200,        // static
@@ -242,9 +245,9 @@ const ProfileCard = () => {
       </div>
     </div>
       <div className="profile-divider-exact" />
-      <button className="profile-view-btn-exact">View Profile</button>
-    <VideoPitchModal isOpen={showPitchModal} onClose={() => setShowPitchModal(false)} />
 
+         <button className="profile-view-btn-exact" onClick={() => navigate('/profile')}>View Profile</button>
+    <VideoPitchModal isOpen={showPitchModal} onClose={() => setShowPitchModal(false)} />
     </div>
   );
 };

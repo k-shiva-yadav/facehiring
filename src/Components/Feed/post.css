@@ -270,7 +270,7 @@
 .reaction-bar {
   position: absolute;
   bottom: 100%;
-  left: 150%;
+  left: 170%;
   background: white;
   padding: 8px;
   border-radius: 30px;
@@ -383,10 +383,11 @@
 .options-btn {
   background: none;
   border: none;
-  color: #666;
+  font-size: 1.3em;
   cursor: pointer;
-  padding: 8px;
-  border-radius: 50%;
+  color: #888;
+  padding: 0 2px;
+  line-height: 1;
 }
 
 .options-btn:hover {
@@ -433,4 +434,33 @@
   opacity: 1;
   pointer-events: auto;
   z-index: 1;
+}
+
+.post-top-bar-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  min-height: 40px;
+  border-bottom: 1px solid #e6e6e6;
+  background: #fff;
+}
+.suggested-label {
+  font-weight: 600;
+  color: #888;
+  font-size: 1.05em;
+}
+.post-top-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.post-dismiss-btn {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #888;
+  padding: 0 2px;
+  line-height: 1;
 }

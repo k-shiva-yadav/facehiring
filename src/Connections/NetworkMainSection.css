@@ -1,0 +1,387 @@
+.nm-main-content {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 0 32px 0;
+}
+.nm-tabs-row {
+  display: flex;
+  gap: 0;
+  margin-bottom: 32px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(60, 88, 152, 0.08);
+  overflow: hidden;
+}
+.nm-tab-btn {
+  flex: 1;
+  padding: 12px 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #222;
+  background: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.nm-tab-btn.active {
+  background: #3C5898;
+  color: #fff;
+}
+.nm-section-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 18px 0 6px 0;
+}
+.nm-section-header {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #222;
+}
+.nm-blue-link {
+  color: #0077b5;
+  font-weight: 700;
+  cursor: pointer;
+}
+.nm-show-all-link {
+  color: #222;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  margin-left: 12px;
+}
+.nm-connection-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+/* Unify connection card styles for received and sent tabs */
+.nm-connection-card, .nm-sent-request-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(60, 88, 152, 0.08);
+  display: flex;
+  align-items: center;
+  padding: 12px 12px;
+  gap: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.nm-sent-request-card {
+  /* Only add margin-bottom if needed for spacing between cards */
+  margin-bottom: 12px;
+}
+
+.nm-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.nm-conn-info {
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.nm-conn-name-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+/* Unify font sizes and spacing for text and buttons */
+.nm-conn-name, .nm-recent-name, .nm-skill-name {
+  font-weight: 700;
+  font-size: 0.93rem;
+  color: #222;
+}
+.nm-conn-role, .nm-recent-role, .nm-skill-role {
+  color: #888;
+  font-size: 0.89rem;
+  font-weight: 500;
+}
+.nm-conn-link, .nm-skill-match {
+  color: #0077b5;
+  font-size: 0.87rem;
+  font-weight: 600;
+  text-decoration: underline;
+  margin-top: 2px;
+}
+.nm-conn-divider {
+  width: 2px;
+  height: 32px;
+  background: #0077b5;
+  border-radius: 2px;
+  margin: 0 8px;
+}
+.nm-conn-message, .nm-sent-message {
+  flex: 1;
+  color: #666;
+  font-size: 0.91rem;
+  font-weight: 500;
+}
+.nm-conn-actions, .nm-sent-actions {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
+.nm-btn, .nm-pending-btn, .nm-sent-request-card .nm-btn-primary {
+  font-size: 0.91rem;
+  font-weight: 700;
+  border-radius: 24px;
+  padding: 6px 18px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 4px rgba(60, 88, 152, 0.10);
+}
+.nm-btn-primary {
+  background: #3C5898;
+  color: #fff;
+  border: none;
+}
+.nm-btn-outline {
+  background: #fff;
+  color: #222;
+  border: 2px solid #222;
+  box-shadow: none;
+}
+.nm-btn-outline:hover {
+  background: #f3f6f8;
+}
+.nm-recent-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.nm-recent-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(60, 88, 152, 0.08);
+  display: flex;
+  align-items: center;
+  padding: 18px 20px;
+  gap: 18px;
+}
+.nm-recent-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.nm-recent-time {
+  color: #888;
+  font-size: 0.85rem;
+  font-weight: 400;
+}
+.nm-skill-matches-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 18px;
+  margin-top: 8px;
+}
+.nm-skill-card-modern {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(60, 88, 152, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 0 18px 0;
+  overflow: hidden;
+  min-width: 0;
+}
+.nm-skill-banner-wrap {
+  width: 100%;
+  position: relative;
+  height: 80px;
+  background: #eee;
+  overflow: visible;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+.nm-skill-banner {
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+  display: block;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  z-index: 1;
+  position: relative;
+}
+.nm-skill-avatar {
+  position: absolute;
+  left: 50%;
+  bottom: -32px;
+  transform: translateX(-50%);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  object-fit: cover;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(60, 88, 152, 0.10);
+  z-index: 2;
+}
+.nm-skill-card-content {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  width: 100%;
+  padding: 0 12px;
+}
+.nm-skill-name-modern {
+  font-weight: 700;
+  font-size: 1.07rem;
+  color: #222;
+  margin-top: 2px;
+  text-align: center;
+}
+.nm-skill-role-modern {
+  color: #888;
+  font-size: 0.97rem;
+  font-weight: 500;
+  text-align: center;
+}
+.nm-skill-company-modern {
+  color: #888;
+  font-size: 0.93rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 8px;
+  margin-top: 2px;
+  text-align: center;
+}
+.nm-skill-briefcase {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nm-skill-connect-btn {
+  margin-top: 10px;
+  width: 90%;
+  max-width: 220px;
+  border: 2px solid #3C5898;
+  color: #3C5898;
+  background: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: none;
+  padding: 8px 0;
+  border-radius: 24px;
+  transition: background 0.2s, color 0.2s;
+}
+.nm-skill-connect-btn:hover {
+  background: #e0e7ff;
+}
+.nm-skill-connect-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nm-sent-request-card {
+  /* Only add margin-bottom if needed for spacing between cards */
+  margin-bottom: 12px;
+}
+@media (max-width: 900px) {
+  .nm-main-content {
+    max-width: 100%;
+    padding: 0 8px 32px 8px;
+  }
+  .nm-recent-grid {
+    grid-template-columns: 1fr;
+  }
+  .nm-skill-matches-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .nm-sent-request-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 14px 8px;
+  }
+  .nm-sent-actions {
+    gap: 10px;
+  }
+}
+@media (max-width: 600px) {
+  .nm-tabs-row {
+    flex-direction: column;
+    border-radius: 8px;
+  }
+  .nm-tab-btn {
+    font-size: 1.05rem;
+    padding: 12px 0;
+  }
+  .nm-section-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    margin: 24px 0 8px 0;
+  }
+  .nm-connection-card, .nm-recent-card, .nm-skill-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 14px 8px;
+  }
+  .nm-conn-divider {
+    display: none;
+  }
+  .nm-recent-grid, .nm-skill-matches-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .nm-skill-card-content {
+    padding: 0 4px;
+  }
+}
+@media (max-width: 1200px) {
+  .nm-connection-card, .nm-sent-request-card {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 8px;
+    text-align: center;
+  }
+  .nm-connection-card .nm-avatar,
+  .nm-sent-request-card .nm-avatar {
+    display: block;
+    margin: 0 auto 16px auto;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(60, 88, 152, 0.10);
+  }
+  .nm-conn-divider {
+    display: none;
+  }
+  .nm-conn-info {
+    align-items: center;
+    width: 100%;
+  }
+  .nm-conn-message, .nm-sent-message {
+    width: 100%;
+    margin: 0 0 8px 0;
+  }
+  .nm-conn-actions, .nm-sent-actions {
+    width: 100%;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 8px;
+  }
+} 
