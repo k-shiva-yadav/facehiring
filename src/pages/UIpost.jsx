@@ -153,17 +153,53 @@ import { useAuthContext } from '../../src/Context/AuthContext';
 import ShareBox from '../Components/Feed/ShareBox';
 import Post from '../Components/Feed/Post';
 import './Home.css';
+import VideoPitchModal from '../Components/VideoPitchModal';
 import { FaSpinner, FaMapMarkerAlt, FaBuilding, FaVideo, FaBookmark, FaChevronRight, FaUserPlus } from 'react-icons/fa';
+import axios from 'axios';
 
 const ProfileCard = () => {
-  const { user } = useAuthContext();
+  const { user, networkData, } = useAuthContext();
+  const [showPitchModal, setShowPitchModal] = useState(false);
   // Placeholder analytics
-  const analytics = {
-    profileViews: 350,
-    postImpressions: 1200,
-    followers: 12000,
-    searchAppearances: 800,
-  };
+  const [analytics, setAnalytics] = useState({
+    postImpressions: 1200,        // static
+    searchAppearances: 800,       // static
+    profileViews: 0,              // from API -> profileImpressions
+    followers: 0,                 // from API -> connections
+  });
+     useEffect(()=>{
+    console.log(networkData, 'networked data coming===>>')
+      console.log('Type:', typeof networkData);
+  })
+    useEffect(() => {
+    const fetchAnalytics = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        const response = await axios.get(
+          "https://facehiringapi.codingster.in/api/Analytics/GetUserAnalytics",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              Accept: "*/*",
+            },
+          }
+        );
+
+        const data = response.data?.data;
+        if (data) {
+          setAnalytics((prev) => ({
+            ...prev,
+            profileViews: data.profileImpressions || 0,
+            followers: data.connections || 0,
+          }));
+        }
+      } catch (err) {
+        console.error("Error fetching analytics:", err);
+      }
+    };
+
+    fetchAnalytics();
+  }, []);
   return (
     <div className="profile-card-exact">
       <div className="profile-banner-exact">
@@ -182,29 +218,33 @@ const ProfileCard = () => {
         <div className="profile-company-exact"><FaBuilding style={{marginRight: 4}}/>{user?.companyName || 'XYZ software company Ltd.'}</div>
         <div className="profile-location-exact"><FaMapMarkerAlt style={{marginRight: 4}}/>{user?.location || 'Hyderabad, Telangana'}</div>
       </div>
-      <button className="profile-main-btn-exact"><FaVideo style={{marginRight: 8, fontSize: '1.1em'}}/> My Video Pitch</button>
+      <button className="profile-main-btn-exact" onClick={() => setShowPitchModal(true)}>
+  <FaVideo style={{ marginRight: 8, fontSize: '1.1em' }} /> My Video Pitch
+</button>
       <div className="profile-divider-exact" />
       <a href="#" className="profile-analytics-link-exact">View all analytics</a>
-      <div className="profile-analytics-exact">
-        <div>
-          <div className="profile-analytics-label-exact">Profile Viewers</div>
-          <div className="profile-analytics-value-exact">{analytics.profileViews}</div>
-        </div>
-        <div>
-          <div className="profile-analytics-label-exact">Post Impressions</div>
-          <div className="profile-analytics-value-exact">{analytics.postImpressions}</div>
-        </div>
-        <div>
-          <div className="profile-analytics-label-exact">Followers</div>
-          <div className="profile-analytics-value-exact">{analytics.followers.toLocaleString()}</div>
-        </div>
-        <div>
-          <div className="profile-analytics-label-exact">Search Appearances</div>
-          <div className="profile-analytics-value-exact">{analytics.searchAppearances}</div>
-        </div>
+       <div className='profile-analytics-exact'>
+      <div>
+        <div className="profile-analytics-label-exact">Profile Viewers</div>
+        <div className="profile-analytics-value-exact">{analytics.profileViews}</div>
       </div>
+      <div>
+        <div className="profile-analytics-label-exact">Post Impressions</div>
+        <div className="profile-analytics-value-exact">{analytics.postImpressions}</div>
+      </div>
+      <div>
+        <div className="profile-analytics-label-exact">Followers</div>
+        <div className="profile-analytics-value-exact">{analytics.followers.toLocaleString()}</div>
+      </div>
+      <div>
+        <div className="profile-analytics-label-exact">Search Appearances</div>
+        <div className="profile-analytics-value-exact">{analytics.searchAppearances}</div>
+      </div>
+    </div>
       <div className="profile-divider-exact" />
       <button className="profile-view-btn-exact">View Profile</button>
+    <VideoPitchModal isOpen={showPitchModal} onClose={() => setShowPitchModal(false)} />
+
     </div>
   );
 };
@@ -218,100 +258,144 @@ const SavedItemsCard = () => (
 );
 
 const SkillMatchesCard = () => {
-  const matches = [
-    {
-      name: 'Mohit Reddy',
-      subtitle: 'UI/UI Design at ABC software Pvt. Ltd.',
-      avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
-    },
-    {
-      name: 'Laxmi Seoni',
-      subtitle: 'UI/UI Design at ABC software Pvt. Ltd.',
-      avatar: 'https://randomuser.me/api/portraits/women/44.jpg',
-    },
-    {
-      name: 'Satish Mina',
-      subtitle: 'UI/UI Design at ABC software Pvt. Ltd.',
-      avatar: 'https://randomuser.me/api/portraits/men/45.jpg',
-    },
-    {
-      name: 'Alia Mithali',
-      subtitle: 'UI/UI Design at ABC software Pvt. Ltd.',
-      avatar: 'https://randomuser.me/api/portraits/women/65.jpg',
-    },
-  ];
+   const {
+       networkData,
+       sendConnectionRequest,
+       respondToRequest,
+       cancelRequest,
+       fetchConnections,
+       fetchRecommendations,
+       fetchPendingRequests,
+       user,
+     } = useAuthContext();
+     const [connectionStatus, setConnectionStatus] = useState({});
+   
+     useEffect(()=>{
+    console.log(networkData, 'networked data coming===>>')
+      console.log('Type:', typeof networkData);
+  })
+  
+  
+   // Handle the "Connect" button click
+  const handleConnect = async (userId, recommendationId) => {
+    // Set the status to "pending" for this recommendation
+    setConnectionStatus((prev) => ({
+      ...prev,
+      [recommendationId]: 'pending',
+    }));
+
+    try {
+      await sendConnectionRequest(user.id, userId);
+      // On success, update the status to "sent"
+      setConnectionStatus((prev) => ({
+        ...prev,
+        [recommendationId]: 'sent',
+      }));
+    } catch (error) {
+      console.error('Error sending connection request:', error);
+      // On failure, revert the status to "notSent"
+      setConnectionStatus((prev) => ({
+        ...prev,
+        [recommendationId]: 'notSent',
+      }));
+    }
+  };
   return (
     <div className="skill-matches-card-exact">
-      <div className="skill-matches-title-exact">Skill matches</div>
-      <div className="skill-matches-divider-exact" />
-      <div className="skill-matches-list-exact">
-        {matches.map((m, i) => (
-          <div className="skill-matches-item-exact" key={i}>
-            <img src={m.avatar} alt={m.name} className="skill-matches-avatar-exact" />
-            <div className="skill-matches-info-exact">
-              <div className="skill-matches-name-exact">{m.name}</div>
-              <div className="skill-matches-subtitle-exact">{m.subtitle}</div>
-              <button className="skill-matches-connect-btn-exact">
-                <FaUserPlus style={{marginRight: 6, fontSize: '1.1em'}}/> Connect
-              </button>
-            </div>
-          </div>
-        ))}
+  <div className="skill-matches-title-exact">Skill matches</div>
+  <div className="skill-matches-divider-exact" />
+  <div className="skill-matches-list-exact">
+    {networkData?.recommendations?.length === 0 && <div>No matches found</div>}
+    
+    {(networkData?.recommendations || []).slice(-5).map((m, i) => (
+      <div className="skill-matches-item-exact" key={m.id || i}>
+        <img
+          src={m.imageFile || 'https://placehold.co/150x150'}
+          alt={m.fullName}
+          className="skill-matches-avatar-exact"
+        />
+        <div className="skill-matches-info-exact">
+          <div className="skill-matches-name-exact">{m.fullName}</div>
+          <div className="skill-matches-subtitle-exact">{m.source}</div>
+          <button className="skill-matches-connect-btn-exact" onClick={() => handleConnect(m.id, m.id)}>
+            <FaUserPlus style={{ marginRight: 6, fontSize: '1.1em' }} />
+            Connect
+          </button>
+        </div>
       </div>
-      <div className="skill-matches-bottom-divider-exact" />
-      <button className="skill-matches-discover-btn-exact">Discover more</button>
-    </div>
+    ))}
+  </div>
+  <div className="skill-matches-bottom-divider-exact" />
+  <button className="skill-matches-discover-btn-exact">Discover more</button>
+</div>
+
   );
 };
 
 const RequestInvitationCard = () => {
-  const requests = [
-    {
-      name: 'Keshav Mukarji',
-      title: 'UI/UI Design at ABC software Pvt. Ltd.',
-      avatar: 'https://randomuser.me/api/portraits/men/31.jpg',
-    },
-    {
-      name: 'Sai Devant',
-      title: 'UI/UI Design at ABC software Pvt. Ltd.',
-      avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
-    },
-    {
-      name: 'Sunny Leli',
-      title: 'UI/UI Design at ABC software Pvt. Ltd.',
-      avatar: 'https://randomuser.me/api/portraits/women/33.jpg',
-    },
-    {
-      name: 'Priya Jha',
-      title: 'UI/UI Design at ABC software Pvt. Ltd.',
-      avatar: 'https://randomuser.me/api/portraits/women/34.jpg',
-    },
-  ];
+  const {
+    networkData,
+    respondToRequest,
+  } = useAuthContext();
+
+  const requests = networkData?.pendingRequests || [];
+
+  const handleAccept = (connectionId) => {
+    respondToRequest(connectionId, true);
+  };
+
+  const handleReject = (connectionId) => {
+    respondToRequest(connectionId, false);
+  };
+
   return (
-    <div className="request-invitation-card-exact">
-      <div className="request-invitation-title-exact">
-        Request / Invitation <span className="request-invitation-count-exact">(26)</span>
-      </div>
-      <div className="request-invitation-divider-exact" />
-      <div className="request-invitation-list-exact">
-        {requests.map((req, i) => (
-          <div className="request-invitation-item-exact" key={i}>
-            <img src={req.avatar} alt={req.name} className="request-invitation-avatar-exact" />
-            <div className="request-invitation-info-exact">
-              <div className="request-invitation-name-exact">{req.name}</div>
-              <div className="request-invitation-title2-exact">{req.title}</div>
-              <div className="request-invitation-actions-exact">
-                <button className="request-invitation-accept-exact">Accept</button>
-                <button className="request-invitation-ignore-exact">Ignore</button>
+    requests.length > 0 && (
+      <div className="request-invitation-card-exact">
+        <div className="request-invitation-title-exact">
+          Request / Invitation{' '}
+          <span className="request-invitation-count-exact">({requests.length})</span>
+        </div>
+
+        <div className="request-invitation-divider-exact" />
+
+        <div className="request-invitation-list-exact">
+          {requests.map((req, i) => (
+            <div className="request-invitation-item-exact" key={req.id || i}>
+              <img
+                src={req.user?.imageFile || 'https://placehold.co/150x150'}
+                alt={req.user?.fullName || 'User'}
+                className="request-invitation-avatar-exact"
+              />
+              <div className="request-invitation-info-exact">
+                <div className="request-invitation-name-exact">{req.user?.fullName}</div>
+                <div className="request-invitation-title2-exact">
+                  {req.user?.email || 'No email'}
+                </div>
+                <div className="request-invitation-actions-exact">
+                  <button
+                    className="request-invitation-accept-exact"
+                    onClick={() => handleAccept(req.id)}
+                  >
+                    Accept
+                  </button>
+                  <button
+                    className="request-invitation-ignore-exact"
+                    onClick={() => handleReject(req.id)}
+                  >
+                    Ignore
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+
+        <div className="request-invitation-footer-exact">Discover more</div>
       </div>
-      <div className="request-invitation-footer-exact">Discover more</div>
-    </div>
+    )
   );
 };
+
 
 const AdvertisementCard = () => (
   <div className="advertisement-card-exact">

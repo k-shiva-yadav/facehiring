@@ -697,9 +697,9 @@ const styles = {
         {error && <div className="text-danger mb-3">{error}</div>}
         <Row className="form-footer">
           <Col className="text-end">
-            <Button variant="link" className="skip-btn me-3" onClick={nextStep}>
+            {/* <Button variant="link" className="skip-btn me-3" onClick={nextStep}>
               Skip this time
-            </Button>
+            </Button> */}
             <Button variant="primary" onClick={handleSubmit} disabled={isSubmitting}>
               {isSubmitting ? "Submitting..." : "Next"}
             </Button>
