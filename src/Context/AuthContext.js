@@ -485,7 +485,7 @@ export const AuthProvider = ({ children }) => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        `https://facehiringapi.codingster.in/api/Connections/GetPendingRequests?page=${page}&pageSize=${pageSize}`,
+        `https://facehiringapi.codingster.in/api/Connections/GetPendingRequests`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       if (response.data.responseCode === 1) {
