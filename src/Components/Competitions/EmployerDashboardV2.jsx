@@ -95,7 +95,9 @@ const HostCompetitionPage = () => {
 
   // Status dropdown state for each competition
   const [statusDropdownOpen, setStatusDropdownOpen] = useState({});
-  const [competitionsData, setCompetitionsData] = useState(competitions);
+  // const [competitionsData, setCompetitionsData] = useState(competitions);
+  const [competitionsData, setCompetitionsData] = useState([]);
+
 
   // Menu dropdown state for each competition
   const [menuDropdownOpen, setMenuDropdownOpen] = useState({});
@@ -105,6 +107,22 @@ const HostCompetitionPage = () => {
   const handleToggleCompetitionsDropdown = () => {
     setShowCompetitionsDropdown(prev => !prev);
   };
+
+  useEffect(() => {
+  const fetchCompetitions = async () => {
+    try {
+      const response = await fetch('https://facehiringapi.codingster.in/api/Competition/GetAll'); // Replace with your actual URL
+      const data = await response.json();
+      console.log('Fetched competitions:', data); // ✅ To console the fetched data
+      setCompetitionsData(data.data || []);
+    } catch (error) {
+      console.error('Error fetching competitions:', error);
+    }
+  };
+
+  fetchCompetitions();
+}, []);
+
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -212,7 +230,7 @@ const HostCompetitionPage = () => {
                     <div className="dashboard-v2-card-title-row">
                       <span className="dashboard-v2-card-title">{comp.title}</span>
                       <span className={`dashboard-v2-card-status-pill ${comp.status === 'ONLINE' ? 'online' : 'offline'}`}>{comp.status}</span>
-                      <span className="dashboard-v2-card-menu" id={`menu-btn-${comp.id}`} onClick={() => handleMenuBtnClick(comp.id)}><FaEllipsisV />
+                      {/* <span className="dashboard-v2-card-menu" id={`menu-btn-${comp.id}`} onClick={() => handleMenuBtnClick(comp.id)}><FaEllipsisV />
                       {menuDropdownOpen[comp.id] && (
                         <div className="dashboard-v2-card-menu-dropdown" id={`menu-dropdown-${comp.id}`}> 
                           <div className="dashboard-v2-card-menu-item">
@@ -224,7 +242,22 @@ const HostCompetitionPage = () => {
                           </div>
                         </div>
                       )}
-                      </span>
+                      </span> */}
+                      <div className="dashboard-v2-card-menu" id={`menu-btn-${comp.id}`} onClick={() => handleMenuBtnClick(comp.id)}>
+  <FaEllipsisV />
+  {menuDropdownOpen[comp.id] && (
+    <div className="dashboard-v2-card-menu-dropdown" id={`menu-dropdown-${comp.id}`}> 
+      <div className="dashboard-v2-card-menu-item">
+        <FaBriefcase className="dashboard-v2-card-menu-icon" /> Edit competition
+      </div>
+      <div className="dashboard-v2-card-menu-divider" />
+      <div className="dashboard-v2-card-menu-item delete">
+        <FaTrash className="dashboard-v2-card-menu-icon" /> Delete competition
+      </div>
+    </div>
+  )}
+</div>
+
                     </div>
                     <div className="dashboard-v2-card-desc">{comp.subtitle}</div>
                     <div className="dashboard-v2-card-meta-row">
@@ -256,7 +289,8 @@ const HostCompetitionPage = () => {
                     <div className="dashboard-v2-status-dropdown-wrapper">
                       <button
                         id={`status-btn-${comp.id}`}
-                        className={`dashboard-v2-status-btn ${comp.status.toLowerCase()}`}
+                        // className={`dashboard-v2-status-btn ${comp.status.toLowerCase()}`}
+                        className={`dashboard-v2-status-btn ${(comp.status || '').toLowerCase()}`}
                         onClick={() => handleStatusBtnClick(comp.id)}
                         type="button"
                       >
