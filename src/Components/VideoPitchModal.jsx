@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 import './Sidebar/sidebar.css';
 import { useAuthContext } from '../Context/AuthContext';
 import axios from 'axios';
+import { toast } from 'react-toastify';
+
 
 const VideoPitchModal = ({ isOpen, onClose }) => {
     const { user } = useAuthContext();
@@ -144,12 +146,15 @@ const downloadVideo = async () => {
     );
 
     console.log('Video uploaded successfully:', response.data);
-    alert('Video uploaded successfully!');
+    // alert('Video uploaded successfully!');
+    toast.success('Video uploaded successfully!',);
     recordedChunks.current = [];
     onClose();
   } catch (error) {
     console.error('Error uploading video:', error);
-    alert('Failed to upload video.');
+    // alert('Failed to upload video.');
+          toast.error('Failed to upload video.');
+    
   }
 };
 
